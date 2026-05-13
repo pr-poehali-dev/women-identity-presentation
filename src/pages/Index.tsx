@@ -19,7 +19,7 @@ const IMG = {
   wallArt:     "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2c171346-080a-49d3-b11b-71f86a48b260.jpg",
 };
 
-const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","dinner"] as const;
+const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","block3","dinner"] as const;
 
 const KF = `
   @keyframes su { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
@@ -95,6 +95,7 @@ export default function Index() {
           {slide === "intro"       && <SlideIntro />}
           {slide === "host"        && <SlideHost />}
           {slide === "block2"      && <SlideBlock2 />}
+          {slide === "block3"      && <SlideBlock3 />}
           {slide === "dinner"      && <SlideDinner />}
         </div>
       </div>
@@ -377,38 +378,29 @@ function SlideHost() {
 /* ─── SLIDE 8: Блок 2 — На стыке времён ─── */
 function SlideBlock2() {
   return (
-    <div style={{ width:"100%", height:"100%", padding:"4% 6%", boxSizing:"border-box", display:"flex", flexDirection:"column" }}>
-      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>07 — Блок 2</p>
-      <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
-        Номер на стыке времён
-      </h2>
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2%", flex:1, animation:"su 0.9s ease-out 0.2s both" }}>
-        {/* левая карточка — перформанс */}
-        <div style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
-          <div style={{ flex:"0 0 42%", background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)", position:"relative" }}>
-            <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.3em", opacity:0.22 }}>
-              <div style={{ width:"2rem", height:"2px", background:"#a8926f" }} />
-              <div style={{ width:"1.2rem", height:"2px", background:"#a8926f" }} />
-            </div>
-          </div>
-          <div style={{ padding:"5% 6%", flex:1 }}>
-            <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.76rem,1.2vw,0.96rem)", color:"#3d2b1a", marginBottom:"0.45em", lineHeight:1.2 }}>Хаос как творчество</h4>
-            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.72, color:"#4a3520", margin:0 }}>
-              Всё начинается с шума — стук по бокалу, шорох бумаги, звук обуви по паркету. Один инструмент подхватывает другой, голоса вступают сами, танец рождается стихийно. Нет порядка — есть вдохновение. Каждый живёт своей историей, но все вместе сливаются в единый творческий порыв. Стилистика — на стыке классики и современного репа.
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      {/* место под картинку */}
+      <div style={{ flex:"0 0 34%", background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)", display:"flex", alignItems:"center", justifyContent:"center", position:"relative", flexShrink:0 }}>
+        <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.4em", opacity:0.22 }}>
+          <div style={{ width:"2.5rem", height:"2px", background:"#a8926f" }} />
+          <div style={{ width:"1.5rem", height:"2px", background:"#a8926f" }} />
+        </div>
+      </div>
+      <div style={{ flex:1, padding:"4% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>07 — Блок 2</p>
+        <h2 style={{ ...H2, marginBottom:"4%", animation:"su 0.8s ease-out 0.1s both" }}>
+          Номер на стыке времён
+        </h2>
+        <div style={{ display:"flex", flexDirection:"column", gap:"1.2em", animation:"su 0.9s ease-out 0.2s both" }}>
+          <div>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.78rem,1.2vw,0.98rem)", color:"#3d2b1a", marginBottom:"0.35em", letterSpacing:"0.01em" }}>Хаос как творчество</h3>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
+              Всё начинается с шума — стук по бокалу, шорох бумаги, звук обуви по паркету. Один инструмент подхватывает другой, голоса вступают сами, танец рождается стихийно. Нет порядка — есть вдохновение. Каждый живёт своей историей, но все вместе сливаются в единый творческий порыв. Стилистика — на стыке классики и современного рэпа.
             </p>
           </div>
-        </div>
-        {/* правая карточка — голограмма */}
-        <div style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
-          <div style={{ flex:"0 0 42%", background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)", position:"relative" }}>
-            <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.3em", opacity:0.22 }}>
-              <div style={{ width:"2rem", height:"2px", background:"#a8926f" }} />
-              <div style={{ width:"1.2rem", height:"2px", background:"#a8926f" }} />
-            </div>
-          </div>
-          <div style={{ padding:"5% 6%", flex:1 }}>
-            <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.76rem,1.2vw,0.96rem)", color:"#3d2b1a", marginBottom:"0.45em", lineHeight:1.2 }}>Появление голограммы поэта</h4>
-            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.72, color:"#4a3520", margin:0 }}>
+          <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"1em" }}>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.78rem,1.2vw,0.98rem)", color:"#3d2b1a", marginBottom:"0.35em", letterSpacing:"0.01em" }}>Появление голограммы поэта</h3>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
               Световая отбивка — и на прозрачном экране возникает силуэт. Поэт обращается к залу: цитирует себя, говорит о женщине языком своего времени. А в финале подводит мысль к сегодняшнему дню — туда, где о женщинах говорят уже иначе: в песнях, в рэпе, в ритме улицы.
             </p>
           </div>
@@ -418,7 +410,61 @@ function SlideBlock2() {
   );
 }
 
-/* ─── SLIDE 9: Финал / Ужин ─── */
+/* ─── SLIDE 9: Блок 3 — Женщина-танец + Оркестр ─── */
+function SlideBlock3() {
+  const DANCE = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/80476c95-2ccb-4461-9f82-b9894670507b.jpg";
+  const instruments = [
+    { name:"Скрипка", text:"Тонкая, трепетная, чувствующая всё — она первой отзывается на боль и радость." },
+    { name:"Духовые", text:"Страстные и порывистые — они говорят громко, когда слов уже недостаточно." },
+    { name:"Ударные", text:"Сердце ритма. В ней — сила, которая держит всё вместе, даже когда никто не замечает." },
+    { name:"Рояль",   text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
+  ];
+  return (
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      {/* картинка — эскиз танцующей пары */}
+      <div style={{ flex:"0 0 32%", position:"relative", overflow:"hidden", flexShrink:0 }}>
+        <img src={DANCE} alt="Танцующая пара" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(20%) contrast(0.85) brightness(1.08)", opacity:0.88 }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 55%, #f5efe6)" }} />
+      </div>
+
+      <div style={{ flex:1, padding:"3.5% 5%", display:"flex", flexDirection:"column", justifyContent:"space-between", overflow:"hidden" }}>
+        <div>
+          <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>08 — Блок 3</p>
+
+          {/* Женщина — танец */}
+          <div style={{ animation:"su 0.8s ease-out 0.1s both", marginBottom:"3%" }}>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em" }}>Женщина — это танец</h3>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
+              Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз. Слова и движение существуют вместе, дополняя друг друга, как мелодия и ритм.
+            </p>
+          </div>
+        </div>
+
+        {/* Оркестр — инструменты */}
+        <div style={{ animation:"su 0.9s ease-out 0.2s both" }}>
+          <div style={{ display:"flex", alignItems:"center", gap:"0.8em", marginBottom:"0.8em" }}>
+            <div style={{ height:"1px", flex:1, background:"linear-gradient(90deg, #c8b89a, transparent)" }} />
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.78rem,1.2vw,0.98rem)", color:"#3d2b1a", whiteSpace:"nowrap" }}>Женщина — инструмент оркестра</h3>
+            <div style={{ height:"1px", flex:1, background:"linear-gradient(270deg, #c8b89a, transparent)" }} />
+          </div>
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.55em 2em" }}>
+            {instruments.map((inst, i) => (
+              <div key={i} style={{ display:"flex", gap:"0.6em", alignItems:"flex-start" }}>
+                <span style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.42rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"#a8926f", border:"1px solid #c8b89a", padding:"0.18em 0.5em", whiteSpace:"nowrap", marginTop:"0.1em", flexShrink:0 }}>{inst.name}</span>
+                <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.58rem,0.82vw,0.72rem)", lineHeight:1.65, color:"#4a3520", margin:0 }}>{inst.text}</p>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily:"'Cormorant', serif", fontStyle:"italic", fontSize:"clamp(0.6rem,0.85vw,0.75rem)", color:"#8b6e4e", marginTop:"0.7em", lineHeight:1.6 }}>
+            И наконец все голоса сливаются — в финальную композицию, где каждая звучит в полную силу.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 10: Финал / Ужин ─── */
 function SlideDinner() {
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
