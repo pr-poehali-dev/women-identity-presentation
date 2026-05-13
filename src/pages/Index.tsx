@@ -467,40 +467,52 @@ function SlideBlock3() {
 /* ─── SLIDE 10: Финал / Ужин ─── */
 function SlideDinner() {
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
-      <div style={{ flex:"0 0 45%", position:"relative", overflow:"hidden" }}>
-        <img src={IMG.hologramReal} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"brightness(0.9) contrast(0.92)" }} />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 55%, #f5efe6)" }} />
-        <div style={{ position:"absolute", bottom:"5%", right:"2%", width:"52%", border:"3px solid #faf8f4", overflow:"hidden", boxShadow:"0 4px 20px rgba(60,30,10,0.15)" }}>
-          <img src={IMG.orchestra} alt="" style={{ width:"100%", display:"block", filter:"brightness(0.85) contrast(0.95)" }} />
-        </div>
-      </div>
-      <div style={{ flex:1, padding:"5.5% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>05 — Финал</p>
-        <h2 style={{ ...H2, marginBottom:"0.8em", animation:"su 0.8s ease-out 0.1s both" }}>
-          Торжественный<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>праздничный ужин</span>
-        </h2>
-        <p style={{ ...BODY, animation:"su 0.9s ease-out 0.2s both" }}>
-          Кульминация вечера — левитирующий арт-объект плавно опускается и превращается в стол. Живая музыка, атмосфера и тепло.
+    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
+      {/* Фото на весь слайд */}
+      <img src={IMG.hologramReal} alt="" style={{
+        position:"absolute", inset:0, width:"100%", height:"100%",
+        objectFit:"cover", filter:"brightness(0.62) contrast(1.05)",
+      }} />
+
+      {/* Тонкий градиент снизу для читаемости текста */}
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(20,10,5,0.82) 0%, rgba(20,10,5,0.35) 45%, transparent 100%)" }} />
+
+      {/* Угловые линии */}
+      <div style={{ position:"absolute", top:"6%", left:"5%", width:"3rem", height:"3rem",
+        borderTop:"1px solid rgba(200,184,154,0.5)", borderLeft:"1px solid rgba(200,184,154,0.5)" }} />
+      <div style={{ position:"absolute", top:"6%", right:"5%", width:"3rem", height:"3rem",
+        borderTop:"1px solid rgba(200,184,154,0.5)", borderRight:"1px solid rgba(200,184,154,0.5)" }} />
+      <div style={{ position:"absolute", bottom:"6%", left:"5%", width:"3rem", height:"3rem",
+        borderBottom:"1px solid rgba(200,184,154,0.5)", borderLeft:"1px solid rgba(200,184,154,0.5)" }} />
+      <div style={{ position:"absolute", bottom:"6%", right:"5%", width:"3rem", height:"3rem",
+        borderBottom:"1px solid rgba(200,184,154,0.5)", borderRight:"1px solid rgba(200,184,154,0.5)" }} />
+
+      {/* Контент поверх */}
+      <div style={{
+        position:"absolute", bottom:"8%", left:0, right:0,
+        padding:"0 8%", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center",
+      }}>
+        <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.28em",
+          textTransform:"uppercase", color:"rgba(200,184,154,0.75)", marginBottom:"0.9em",
+          animation:"su 0.7s ease-out both" }}>
+          09 — Финал
         </p>
-        <div style={{ display:"flex", flexDirection:"column", gap:"0.8em", marginTop:"1.4em", animation:"su 1s ease-out 0.32s both" }}>
-          {[
-            "Левитирующий стол — арт-объект и мебель в одном",
-            "Живая музыка во время ужина",
-            "Личные поздравления и подарки",
-            "Атмосферные проекции на стенах",
-          ].map((item, i) => (
-            <div key={i} style={{ display:"flex", gap:"0.8em", alignItems:"center" }}>
-              <div style={{ width:"1.2rem", height:"1px", background:"#c8b89a", flexShrink:0 }} />
-              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.75rem,1.15vw,0.94rem)", color:"#3d2b1a", lineHeight:1.5 }}>{item}</p>
-            </div>
-          ))}
-        </div>
-        <div style={{ marginTop:"1.8em", paddingTop:"1em", borderTop:"1px solid #c8b89a", animation:"su 1s ease-out 0.5s both" }}>
-          <p style={{ fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:300, fontSize:"clamp(0.78rem,1.2vw,0.98rem)", color:"#8b6e4e", lineHeight:1.62 }}>
-            «Так действие идёт по блокам — от образа к живому слову,<br/>от живого слова к общему столу.»
-          </p>
-        </div>
+        <h2 style={{
+          fontFamily:"'Cormorant', serif", fontWeight:300,
+          fontSize:"clamp(1.6rem,3.5vw,3rem)", lineHeight:1.12, color:"#faf8f4",
+          letterSpacing:"0.04em", marginBottom:"0.5em",
+          animation:"su 0.85s ease-out 0.1s both",
+        }}>
+          Торжественный ужин
+        </h2>
+        <div style={{ width:"3rem", height:"1px", background:"rgba(200,184,154,0.6)", marginBottom:"0.8em", animation:"su 0.85s ease-out 0.2s both" }} />
+        <p style={{
+          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:300,
+          fontSize:"clamp(0.72rem,1.2vw,1rem)", lineHeight:1.7, color:"rgba(250,248,244,0.8)",
+          maxWidth:"52%", animation:"su 0.9s ease-out 0.3s both",
+        }}>
+          Левитирующий арт-объект плавно опускается — и становится столом. Живая музыка, тепло свечей, лица близких людей.
+        </p>
       </div>
     </div>
   );
