@@ -189,7 +189,7 @@ function SlideScenography() {
   ];
   return (
     <div style={{ width:"100%", height:"100%", padding:"4% 6%", boxSizing:"border-box", display:"flex", flexDirection:"column" }}>
-      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>02 — Сценография</p>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Сценография</p>
       <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
         Технические решения
       </h2>
