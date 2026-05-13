@@ -290,27 +290,38 @@ function SlideProgram() {
     "Оркестр растворён в зале среди гостей — скрипка, гитара, рояль звучат как воздух на протяжении всего вечера.",
   ];
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
-      <div style={{ flex:"0 0 42%", position:"relative", overflow:"hidden", flexShrink:0 }}>
-        <img
-          src="https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/c5378f03-f270-4258-9ad1-4ddef5431e32.jpg"
-          alt="Сбор гостей"
-          style={{ width:"100%", height:"100%", objectFit:"cover", filter:"brightness(0.88) contrast(0.95)" }}
-        />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 60%, #f5efe6)" }} />
-      </div>
-      <div style={{ flex:1, padding:"4.5% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Ход вечера</p>
-        <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
-          Сбор гостей
-        </h2>
-        <div style={{ display:"flex", flexDirection:"column", gap:"0.6em", animation:"su 0.9s ease-out 0.2s both" }}>
-          {points.map((p, i) => (
-            <div key={i} style={{ display:"flex", gap:"0.75em", alignItems:"flex-start" }}>
-              <div style={{ width:"1.4rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.6em" }} />
-              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.65, color:"#4a3520", margin:0 }}>{p}</p>
-            </div>
-          ))}
+    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
+      {/* Фото на весь фон */}
+      <img
+        src="https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/c5378f03-f270-4258-9ad1-4ddef5431e32.jpg"
+        alt="Сбор гостей"
+        style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", filter:"brightness(0.55) contrast(1.0)" }}
+      />
+      {/* Градиент справа для читаемости */}
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to right, rgba(10,5,2,0.75) 0%, rgba(10,5,2,0.55) 50%, rgba(10,5,2,0.3) 100%)" }} />
+
+      {/* Угловые линии */}
+      <div style={{ position:"absolute", top:"6%", left:"5%", width:"2.4rem", height:"2.4rem", borderTop:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", top:"6%", right:"5%", width:"2.4rem", height:"2.4rem", borderTop:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", bottom:"6%", left:"5%", width:"2.4rem", height:"2.4rem", borderBottom:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", bottom:"6%", right:"5%", width:"2.4rem", height:"2.4rem", borderBottom:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
+
+      {/* Контент */}
+      <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", padding:"5% 7%" }}>
+        <div style={{ maxWidth:"52%" }}>
+          <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.46rem", letterSpacing:"0.26em", textTransform:"uppercase", color:"rgba(200,184,154,0.7)", marginBottom:"0.7em", animation:"su 0.7s ease-out both" }}>Ход вечера</p>
+          <h2 style={{ fontFamily:"'Cormorant', serif", fontWeight:300, fontSize:"clamp(1.4rem,2.8vw,2.4rem)", lineHeight:1.12, color:"#faf8f4", letterSpacing:"0.03em", marginBottom:"0.5em", animation:"su 0.85s ease-out 0.1s both" }}>
+            Сбор гостей
+          </h2>
+          <div style={{ width:"2.5rem", height:"1px", background:"rgba(200,184,154,0.55)", marginBottom:"1em", animation:"su 0.85s ease-out 0.2s both" }} />
+          <div style={{ display:"flex", flexDirection:"column", gap:"0.55em", animation:"su 0.9s ease-out 0.3s both" }}>
+            {points.map((p, i) => (
+              <div key={i} style={{ display:"flex", gap:"0.7em", alignItems:"flex-start" }}>
+                <div style={{ width:"1.2rem", height:"1px", background:"rgba(200,184,154,0.6)", flexShrink:0, marginTop:"0.6em" }} />
+                <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.86vw,0.76rem)", lineHeight:1.68, color:"rgba(250,248,244,0.82)", margin:0 }}>{p}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
