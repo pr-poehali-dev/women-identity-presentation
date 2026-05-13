@@ -196,7 +196,7 @@ function SlideScenography() {
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2%", flex:1, animation:"su 0.9s ease-out 0.2s both" }}>
         {items.map((item, i) => (
           <div key={i} style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
-            <div style={{ flex:"0 0 50%", overflow:"hidden", position:"relative" }}>
+            <div style={{ height:"55%", minHeight:0, overflow:"hidden", position:"relative", flexShrink:0 }}>
               <img
                 src={i === 0
                   ? "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/08c5e24b-be52-44df-a01b-b26589292c1f.jpg"
@@ -208,9 +208,9 @@ function SlideScenography() {
                 onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
               />
             </div>
-            <div style={{ padding:"5% 6%", flex:1, display:"flex", flexDirection:"column", justifyContent:"center" }}>
-              <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.78rem,1.3vw,1rem)", color:"#3d2b1a", marginBottom:"0.4em", lineHeight:1.2 }}>{item.title}</h4>
-              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.9vw,0.78rem)", lineHeight:1.68, color:"#6b5030" }}>{item.text}</p>
+            <div style={{ padding:"4% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
+              <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.76rem,1.2vw,0.96rem)", color:"#3d2b1a", marginBottom:"0.3em", lineHeight:1.2 }}>{item.title}</h4>
+              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.74rem)", lineHeight:1.62, color:"#6b5030", margin:0 }}>{item.text}</p>
             </div>
           </div>
         ))}
