@@ -414,8 +414,10 @@ function SlideBlock3() {
   const DANCE = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/80476c95-2ccb-4461-9f82-b9894670507b.jpg";
   const SKETCH = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/e93f52e4-d876-424f-b637-f8baddbbde17.jpg";
   const instruments = [
-    { name:"Скрипка", text:"Тонкая, трепетная, чувствующая всё — она первой отзывается на боль и радость." },
-    { name:"Рояль",   text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
+    { name:"Скрипка",  text:"Тонкая, трепетная, чувствующая всё — она первой отзывается на боль и радость." },
+    { name:"Духовые",  text:"Страстные и порывистые — они говорят громко, когда слов уже недостаточно." },
+    { name:"Ударные",  text:"Сердце ритма. В ней — сила, которая держит всё вместе, даже когда никто не замечает." },
+    { name:"Рояль",    text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
   ];
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", position:"relative", overflow:"hidden" }}>
