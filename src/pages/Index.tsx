@@ -19,7 +19,7 @@ const IMG = {
   wallArt:     "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2c171346-080a-49d3-b11b-71f86a48b260.jpg",
 };
 
-const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","block3","dinner"] as const;
+const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","block3"] as const;
 
 const KF = `
   @keyframes su { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
@@ -96,7 +96,6 @@ export default function Index() {
           {slide === "host"        && <SlideHost />}
           {slide === "block2"      && <SlideBlock2 />}
           {slide === "block3"      && <SlideBlock3 />}
-          {slide === "dinner"      && <SlideDinner />}
         </div>
       </div>
 
@@ -420,64 +419,18 @@ function SlideBlock3() {
     { name:"Рояль",   text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
   ];
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
-      {/* картинка — эскиз танцующей пары */}
-      <div style={{ flex:"0 0 32%", position:"relative", overflow:"hidden", flexShrink:0 }}>
-        <img src={DANCE} alt="Танцующая пара" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(20%) contrast(0.85) brightness(1.08)", opacity:0.88 }} />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 55%, #f5efe6)" }} />
-      </div>
-
-      <div style={{ flex:1, padding:"3.5% 5%", display:"flex", flexDirection:"column", justifyContent:"space-between", overflow:"hidden" }}>
-        <div>
-          <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>08 — Блок 3</p>
-
-          {/* Женщина — танец */}
-          <div style={{ animation:"su 0.8s ease-out 0.1s both", marginBottom:"3%" }}>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em" }}>Женщина — это танец</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
-              Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз. Слова и движение существуют вместе, дополняя друг друга, как мелодия и ритм.
-            </p>
-          </div>
-        </div>
-
-        {/* Оркестр — инструменты */}
-        <div style={{ animation:"su 0.9s ease-out 0.2s both" }}>
-          <div style={{ display:"flex", alignItems:"center", gap:"0.8em", marginBottom:"0.8em" }}>
-            <div style={{ height:"1px", flex:1, background:"linear-gradient(90deg, #c8b89a, transparent)" }} />
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.78rem,1.2vw,0.98rem)", color:"#3d2b1a", whiteSpace:"nowrap" }}>Женщина — инструмент оркестра</h3>
-            <div style={{ height:"1px", flex:1, background:"linear-gradient(270deg, #c8b89a, transparent)" }} />
-          </div>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.55em 2em" }}>
-            {instruments.map((inst, i) => (
-              <div key={i} style={{ display:"flex", gap:"0.6em", alignItems:"flex-start" }}>
-                <span style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.42rem", letterSpacing:"0.15em", textTransform:"uppercase", color:"#a8926f", border:"1px solid #c8b89a", padding:"0.18em 0.5em", whiteSpace:"nowrap", marginTop:"0.1em", flexShrink:0 }}>{inst.name}</span>
-                <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.58rem,0.82vw,0.72rem)", lineHeight:1.65, color:"#4a3520", margin:0 }}>{inst.text}</p>
-              </div>
-            ))}
-          </div>
-          <p style={{ fontFamily:"'Cormorant', serif", fontStyle:"italic", fontSize:"clamp(0.6rem,0.85vw,0.75rem)", color:"#8b6e4e", marginTop:"0.7em", lineHeight:1.6 }}>
-            И наконец все голоса сливаются — в финальную композицию, где каждая звучит в полную силу.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── SLIDE 10: Финал / Ужин ─── */
-function SlideDinner() {
-  return (
     <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
+
       {/* Фото на весь слайд */}
-      <img src={IMG.hologramReal} alt="" style={{
+      <img src={DANCE} alt="" style={{
         position:"absolute", inset:0, width:"100%", height:"100%",
-        objectFit:"cover", filter:"brightness(0.62) contrast(1.05)",
+        objectFit:"cover", filter:"brightness(0.45) contrast(1.05) sepia(15%)",
       }} />
 
-      {/* Тонкий градиент снизу для читаемости текста */}
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(20,10,5,0.82) 0%, rgba(20,10,5,0.35) 45%, transparent 100%)" }} />
+      {/* Градиент снизу */}
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(15,7,3,0.92) 0%, rgba(15,7,3,0.5) 40%, transparent 100%)" }} />
 
-      {/* Угловые линии */}
+      {/* Угловые декоративные линии */}
       <div style={{ position:"absolute", top:"6%", left:"5%", width:"3rem", height:"3rem",
         borderTop:"1px solid rgba(200,184,154,0.5)", borderLeft:"1px solid rgba(200,184,154,0.5)" }} />
       <div style={{ position:"absolute", top:"6%", right:"5%", width:"3rem", height:"3rem",
@@ -487,32 +440,48 @@ function SlideDinner() {
       <div style={{ position:"absolute", bottom:"6%", right:"5%", width:"3rem", height:"3rem",
         borderBottom:"1px solid rgba(200,184,154,0.5)", borderRight:"1px solid rgba(200,184,154,0.5)" }} />
 
-      {/* Контент поверх */}
+      {/* Текст поверх — нижняя часть по центру */}
       <div style={{
-        position:"absolute", bottom:"8%", left:0, right:0,
-        padding:"0 8%", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center",
+        position:"absolute", bottom:"9%", left:0, right:0,
+        display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", padding:"0 8%",
       }}>
-        <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.28em",
-          textTransform:"uppercase", color:"rgba(200,184,154,0.75)", marginBottom:"0.9em",
-          animation:"su 0.7s ease-out both" }}>
-          09 — Финал
-        </p>
+        <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.48rem", letterSpacing:"0.28em",
+          textTransform:"uppercase", color:"rgba(200,184,154,0.7)", marginBottom:"0.8em",
+          animation:"su 0.7s ease-out both" }}>08 — Блок 3</p>
+
         <h2 style={{
           fontFamily:"'Cormorant', serif", fontWeight:300,
-          fontSize:"clamp(1.6rem,3.5vw,3rem)", lineHeight:1.12, color:"#faf8f4",
-          letterSpacing:"0.04em", marginBottom:"0.5em",
+          fontSize:"clamp(1.4rem,3vw,2.6rem)", lineHeight:1.15, color:"#faf8f4",
+          letterSpacing:"0.04em", marginBottom:"0.4em",
           animation:"su 0.85s ease-out 0.1s both",
         }}>
-          Торжественный ужин
+          Женщина — это танец
         </h2>
-        <div style={{ width:"3rem", height:"1px", background:"rgba(200,184,154,0.6)", marginBottom:"0.8em", animation:"su 0.85s ease-out 0.2s both" }} />
+
+        <div style={{ width:"3rem", height:"1px", background:"rgba(200,184,154,0.55)", marginBottom:"0.7em",
+          animation:"su 0.85s ease-out 0.2s both" }} />
+
         <p style={{
           fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:300,
-          fontSize:"clamp(0.72rem,1.2vw,1rem)", lineHeight:1.7, color:"rgba(250,248,244,0.8)",
-          maxWidth:"52%", animation:"su 0.9s ease-out 0.3s both",
+          fontSize:"clamp(0.68rem,1.1vw,0.9rem)", lineHeight:1.72, color:"rgba(250,248,244,0.75)",
+          maxWidth:"54%", marginBottom:"1.2em", animation:"su 0.9s ease-out 0.3s both",
         }}>
-          Левитирующий арт-объект плавно опускается — и становится столом. Живая музыка, тепло свечей, лица близких людей.
+          Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз.
         </p>
+
+        {/* Инструменты — строка */}
+        <div style={{ display:"flex", gap:"1.8em", flexWrap:"wrap", justifyContent:"center",
+          animation:"su 1s ease-out 0.4s both" }}>
+          {instruments.map((inst, i) => (
+            <div key={i} style={{ display:"flex", alignItems:"center", gap:"0.5em" }}>
+              <span style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.4rem", letterSpacing:"0.15em",
+                textTransform:"uppercase", color:"rgba(200,184,154,0.8)", border:"1px solid rgba(200,184,154,0.4)",
+                padding:"0.15em 0.45em" }}>{inst.name}</span>
+              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.55rem,0.78vw,0.68rem)",
+                lineHeight:1.5, color:"rgba(250,248,244,0.6)", margin:0, maxWidth:"10em" }}>{inst.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
