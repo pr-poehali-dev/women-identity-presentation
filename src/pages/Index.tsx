@@ -256,7 +256,7 @@ function SlideHosts() {
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2%", flex:1, animation:"su 0.9s ease-out 0.2s both" }}>
         {items.map((item, i) => (
           <div key={i} style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
-            <div style={{ height:"35%", minHeight:0, overflow:"hidden", position:"relative", flexShrink:0 }}>
+            <div style={{ height:"30%", minHeight:0, overflow:"hidden", position:"relative", flexShrink:0 }}>
               <img
                 src={i === 0
                   ? "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/a843b07a-86e6-4486-ba6b-8369456cdca9.jpg"
