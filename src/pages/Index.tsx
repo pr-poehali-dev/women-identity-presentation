@@ -19,7 +19,7 @@ const IMG = {
   wallArt:     "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2c171346-080a-49d3-b11b-71f86a48b260.jpg",
 };
 
-const SLIDES = ["title","concept","scenography","hosts","program","dinner"] as const;
+const SLIDES = ["title","concept","scenography","hosts","program","intro","dinner"] as const;
 
 const KF = `
   @keyframes su { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
@@ -92,6 +92,7 @@ export default function Index() {
           {slide === "scenography" && <SlideScenography />}
           {slide === "hosts"       && <SlideHosts />}
           {slide === "program"     && <SlideProgram />}
+          {slide === "intro"       && <SlideIntro />}
           {slide === "dinner"      && <SlideDinner />}
         </div>
       </div>
@@ -271,36 +272,66 @@ function SlideHosts() {
   );
 }
 
-/* ─── SLIDE 5: Ход вечера / Интро ─── */
+/* ─── SLIDE 5: Сбор гостей ─── */
 function SlideProgram() {
   const points = [
     "Зал превращается в мастерскую творцов — живую студию, где рождается искусство прямо на глазах у гостей.",
-    "Стены дышат проекциями эскизов, набросков и картин — пространство само становится холстом.",
-    "Лики женщин семьи вписаны в полотна великих мастеров: их портреты смотрят со стен мастерской.",
+    "На стенах проекции эскизов, набросков и картин — пространство само становится холстом.",
+    "Лица женщин семьи вписаны в полотна великих мастеров: их портреты смотрят со стен мастерской.",
     "Художники с мольбертами работают в реальном времени — каждый штрих здесь и сейчас, при гостях.",
     "В мольберт встроен экран: герой рождается в рисунке — и в нужный момент оживает как голограмма.",
     "Оркестр растворён в зале среди гостей — скрипка, гитара, рояль звучат как воздух на протяжении всего вечера.",
   ];
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
-      {/* место под картинку */}
       <div style={{ flex:"0 0 36%", background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)", display:"flex", alignItems:"center", justifyContent:"center", position:"relative", flexShrink:0 }}>
         <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.4em", opacity:0.25 }}>
           <div style={{ width:"2.5rem", height:"2px", background:"#a8926f" }} />
           <div style={{ width:"1.5rem", height:"2px", background:"#a8926f" }} />
         </div>
       </div>
-
       <div style={{ flex:1, padding:"4.5% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
         <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>04 — Ход вечера</p>
         <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
-          Интро<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>открытие вечера</span>
+          Сбор гостей
         </h2>
         <div style={{ display:"flex", flexDirection:"column", gap:"0.6em", animation:"su 0.9s ease-out 0.2s both" }}>
           {points.map((p, i) => (
             <div key={i} style={{ display:"flex", gap:"0.75em", alignItems:"flex-start" }}>
               <div style={{ width:"1.4rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.6em" }} />
               <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.65, color:"#4a3520", margin:0 }}>{p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 6: Интро ─── */
+function SlideIntro() {
+  const FLOWERS = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/eb1e44f8-d0e0-4d0e-aae9-b546036398ac.jpg";
+  const points = [
+    "Вечер открывается «Вечностью» — в исполнении оркестра или Мачете — и пока музыка разливается по залу, художники пишут портреты женщин, присутствующих здесь: сколько женщин — столько мастеров, десять или одиннадцать.",
+    "В финале номера появляется Игорь Алексеевич — лично или голосом — и произносит речь на фоне сменяющихся фотографий женщин семьи, исполненных как живописные полотна.",
+    "По залу проходят парни-цветочники с плетёными корзинами — словно только что с летнего поля — и передают букеты мужчинам, чтобы те подарили их своим женщинам.",
+  ];
+  return (
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      <div style={{ flex:"0 0 34%", position:"relative", overflow:"hidden", flexShrink:0 }}>
+        <img src={FLOWERS} alt="Эскизы цветов" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(22%) contrast(0.85) brightness(1.08)", opacity:0.88 }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 55%, #f5efe6)" }} />
+      </div>
+      <div style={{ flex:1, padding:"4.5% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>05 — Ход вечера</p>
+        <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
+          Интро<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>открытие вечера</span>
+        </h2>
+        <div style={{ display:"flex", flexDirection:"column", gap:"1em", animation:"su 0.9s ease-out 0.2s both" }}>
+          {points.map((p, i) => (
+            <div key={i} style={{ display:"flex", gap:"0.75em", alignItems:"flex-start" }}>
+              <div style={{ width:"1.4rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.65em" }} />
+              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.64rem,0.9vw,0.8rem)", lineHeight:1.7, color:"#4a3520", margin:0 }}>{p}</p>
             </div>
           ))}
         </div>
