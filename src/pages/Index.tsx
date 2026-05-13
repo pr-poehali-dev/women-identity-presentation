@@ -79,12 +79,7 @@ export default function Index() {
           backgroundImage:`url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E")` }} />
         <FrameLines />
 
-        {/* Counter */}
-        <div style={{ position:"absolute", top:"4%", right:"4.5%", zIndex:20,
-          fontFamily:"'Montserrat', sans-serif", fontSize:"0.58rem",
-          letterSpacing:"0.22em", color:"#a8926f", opacity:0.65 }}>
-          {String(idx+1).padStart(2,"0")} / {String(SLIDES.length).padStart(2,"0")}
-        </div>
+
 
         <div style={{ position:"relative", zIndex:1, width:"100%", height:"100%" }}>
           {slide === "title"       && <SlideTitle />}
@@ -168,12 +163,12 @@ function SlideConcept() {
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 60%, #f5efe6)" }} />
       </div>
       <div style={{ flex:1, padding:"5.5% 5.5% 5.5% 5%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>01 — Концепция / Смыслы</p>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Концепция / Смыслы</p>
         <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
           Основная идея<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и философия события</span>
         </h2>
         <p style={{ ...BODY, maxWidth:"96%", marginTop:"0.8em", animation:"su 0.9s ease-out 0.2s both" }}>
-          Существует множество жанров, в каждом из них восхваляется женский образ: красота души и тела. Через музыку, кино, поэзию — вдохновимся классикой и внедрим женщин семьи и мужчин, которые скажут им приятные слова. Используя контент и жанры, мы описываем женщин в зале. Женщина — это инструмент (скрипка/гитара/клавиши), женщина это танец — танго/вальс, женщина это песня — лиричная, весёлая, рок. Образы известных поэтов и композиторов появятся на прозрачных экранах/полотнах/голограммах. После известной личности появляется мужчина из зала (член семьи) и произносит речь для своих женщин, дарит подарок (по желанию). Так действие идёт по блокам.
+          Существует множество жанров, в каждом из них восхваляется женский образ: красота души и тела. Через музыку, кино, поэзию — вдохновимся классикой и внедрим женщин семьи и мужчин, которые скажут им приятные слова. Используя контент и жанры, мы описываем женщин в зале. Женщина — это инструмент (скрипка/гитара/клавиши), женщина это танец — танго/вальс, женщина это песня — лиричная, весёлая, рок. Образы известных поэтов и композиторов появятся на прозрачных экранах/полотнах/голограммах. После номера-перфоманса появляется мужчина из зала (член семьи) и произносит речь для своих женщин, дарит подарок (по желанию). Так действие идёт по блокам.
         </p>
       </div>
     </div>
@@ -249,7 +244,7 @@ function SlideHosts() {
   ];
   return (
     <div style={{ width:"100%", height:"100%", padding:"4% 6%", boxSizing:"border-box", display:"flex", flexDirection:"column" }}>
-      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>03 — Сценография</p>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Сценография</p>
       <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
         Световые решения<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и голограммы</span>
       </h2>
@@ -293,7 +288,7 @@ function SlideProgram() {
         </div>
       </div>
       <div style={{ flex:1, padding:"4.5% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>04 — Ход вечера</p>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Ход вечера</p>
         <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
           Сбор гостей
         </h2>
@@ -315,8 +310,8 @@ function SlideIntro() {
   const FLOWERS = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/eb1e44f8-d0e0-4d0e-aae9-b546036398ac.jpg";
   const points = [
     "Вечер открывается «Вечностью» — в исполнении оркестра или Мачете — и пока музыка разливается по залу, художники пишут портреты женщин, присутствующих здесь: сколько женщин — столько мастеров.",
-    "В финале номера появляется Игорь Алексеевич — лично или голосом — и произносит речь на фоне сменяющихся фотографий женщин семьи, исполненных как живописные полотна.",
-    "По залу проходят цветочники с плетёными корзинами — словно только что с летнего поля — и передают букеты мужчинам, чтобы те подарили их своим женщинам.",
+    "В финале номера появляется Игорь Алексеевич — лично или голосом в записи — и произносит речь на фоне сменяющихся фотографий женщин семьи, исполненных как живописные полотна.",
+    "После его поздравления по залу проходят цветочники с плетёными корзинами — словно только что с летнего поля — и передают ему букеты. Цветочники появляются и в моменты поздравлений последующих мужчин.",
   ];
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
@@ -325,7 +320,7 @@ function SlideIntro() {
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 55%, #f5efe6)" }} />
       </div>
       <div style={{ flex:1, padding:"4.5% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>05 — Ход вечера</p>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Ход вечера</p>
         <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
           Интро<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>открытие вечера</span>
         </h2>
@@ -354,12 +349,12 @@ function SlideHost() {
         </div>
       </div>
       <div style={{ flex:1, padding:"4% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>06 — Блок 1</p>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Блок 1</p>
         <div style={{ display:"flex", flexDirection:"column", gap:"1.1em", animation:"su 0.9s ease-out 0.15s both" }}>
           <div>
             <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.8rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.4em", letterSpacing:"0.02em" }}>Появление ведущего</h3>
             <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
-              После трека и слов Игоря Алексеевича зал словно делает вдох — и в этой тишине появляется ведущий. Он не выходит на сцену — он проходит сквозь зал, среди людей, среди столов и взглядов. Останавливается у каждой женщины, как будто видит её впервые — и говорит о ней словами поэтов: строчками, которые были написаны века назад, но звучат как сейчас, как здесь, как о ней.
+              После трека и слов Игоря Алексеевича появляется ведущий. Он не выходит на сцену — он проходит сквозь зал, среди людей, среди столов и взглядов. Останавливается у каждой женщины, как будто видит её впервые — и говорит о ней словами поэтов: строчками, которые были написаны века назад, но звучат как сейчас, как здесь, как о ней.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.4)", paddingTop:"1em" }}>
@@ -386,7 +381,7 @@ function SlideBlock2() {
         </div>
       </div>
       <div style={{ flex:1, padding:"4% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>07 — Блок 2</p>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Блок 2</p>
         <h2 style={{ ...H2, marginBottom:"4%", animation:"su 0.8s ease-out 0.1s both" }}>
           Номер на стыке времён
         </h2>
@@ -400,7 +395,13 @@ function SlideBlock2() {
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"1em" }}>
             <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.78rem,1.2vw,0.98rem)", color:"#3d2b1a", marginBottom:"0.35em", letterSpacing:"0.01em" }}>Появление голограммы поэта</h3>
             <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
-              Световая отбивка — и на прозрачном экране возникает силуэт. Поэт обращается к залу: цитирует себя, говорит о женщине языком своего времени. А в финале подводит мысль к сегодняшнему дню — туда, где о женщинах говорят уже иначе: в песнях, в рэпе, в ритме улицы.
+              Световая отбивка — и на прозрачном экране возникает силуэт. Поэт обращается к залу: цитирует себя, говорит о женщине языком своего времени. А в финале подводит мысль к сегодняшнему дню — туда, где о женщинах говорят уже иначе: в песнях, в рэпе, в ритме улицы. После этих слов появляется Тимофей.
+            </p>
+          </div>
+          <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"1em" }}>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.78rem,1.2vw,0.98rem)", color:"#3d2b1a", marginBottom:"0.35em", letterSpacing:"0.01em" }}>Номер — Гимнастка с люстрой</h3>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
+              Воздушный номер — гимнастка работает с люстрой, соединяя красоту и высоту. После номера — поздравление от Давида.
             </p>
           </div>
         </div>
@@ -417,7 +418,7 @@ function SlideBlock3() {
     { name:"Скрипка",  text:"Тонкая, трепетная, чувствующая всё — она первой отзывается на боль и радость." },
     { name:"Духовые",  text:"Страстные и порывистые — они говорят громко, когда слов уже недостаточно." },
     { name:"Ударные",  text:"Сердце ритма. В ней — сила, которая держит всё вместе, даже когда никто не замечает." },
-    { name:"Рояль",    text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
+    { name:"Рояль",    text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после. После финальной композиции оркестра — поздравление от друзей." },
   ];
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", position:"relative", overflow:"hidden" }}>
@@ -442,7 +443,7 @@ function SlideBlock3() {
         }}>
           <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.44rem", letterSpacing:"0.26em",
             textTransform:"uppercase", color:"rgba(200,184,154,0.65)", marginBottom:"0.7em",
-            animation:"su 0.7s ease-out both" }}>08 — Блок 3</p>
+            animation:"su 0.7s ease-out both" }}>Блок 3</p>
           <h2 style={{
             fontFamily:"'Cormorant', serif", fontWeight:300,
             fontSize:"clamp(1.2rem,2.4vw,2.2rem)", lineHeight:1.15, color:"#faf8f4",
@@ -458,7 +459,7 @@ function SlideBlock3() {
             fontSize:"clamp(0.64rem,0.95vw,0.82rem)", lineHeight:1.75, color:"rgba(250,248,244,0.72)",
             animation:"su 0.9s ease-out 0.3s both",
           }}>
-            Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз.
+            Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз. Ведущий произносит подводку к поздравлению от мужей.
           </p>
         </div>
       </div>
