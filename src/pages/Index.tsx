@@ -196,7 +196,7 @@ function SlideScenography() {
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2%", flex:1, animation:"su 0.9s ease-out 0.2s both" }}>
         {items.map((item, i) => (
           <div key={i} style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
-            <div style={{ flex:"0 0 58%", overflow:"hidden", position:"relative" }}>
+            <div style={{ flex:"0 0 50%", overflow:"hidden", position:"relative" }}>
               <img
                 src={i === 0
                   ? "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/08c5e24b-be52-44df-a01b-b26589292c1f.jpg"
