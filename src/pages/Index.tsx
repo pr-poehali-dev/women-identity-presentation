@@ -19,7 +19,7 @@ const IMG = {
   wallArt:     "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2c171346-080a-49d3-b11b-71f86a48b260.jpg",
 };
 
-const SLIDES = ["title","concept","scenography","hosts","program","intro","dinner"] as const;
+const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","dinner"] as const;
 
 const KF = `
   @keyframes su { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
@@ -93,6 +93,8 @@ export default function Index() {
           {slide === "hosts"       && <SlideHosts />}
           {slide === "program"     && <SlideProgram />}
           {slide === "intro"       && <SlideIntro />}
+          {slide === "host"        && <SlideHost />}
+          {slide === "block2"      && <SlideBlock2 />}
           {slide === "dinner"      && <SlideDinner />}
         </div>
       </div>
@@ -312,9 +314,9 @@ function SlideProgram() {
 function SlideIntro() {
   const FLOWERS = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/eb1e44f8-d0e0-4d0e-aae9-b546036398ac.jpg";
   const points = [
-    "Вечер открывается «Вечностью» — в исполнении оркестра или Мачете — и пока музыка разливается по залу, художники пишут портреты женщин, присутствующих здесь: сколько женщин — столько мастеров, десять или одиннадцать.",
+    "Вечер открывается «Вечностью» — в исполнении оркестра или Мачете — и пока музыка разливается по залу, художники пишут портреты женщин, присутствующих здесь: сколько женщин — столько мастеров.",
     "В финале номера появляется Игорь Алексеевич — лично или голосом — и произносит речь на фоне сменяющихся фотографий женщин семьи, исполненных как живописные полотна.",
-    "По залу проходят парни-цветочники с плетёными корзинами — словно только что с летнего поля — и передают букеты мужчинам, чтобы те подарили их своим женщинам.",
+    "По залу проходят цветочники с плетёными корзинами — словно только что с летнего поля — и передают букеты мужчинам, чтобы те подарили их своим женщинам.",
   ];
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
@@ -340,7 +342,83 @@ function SlideIntro() {
   );
 }
 
-/* ─── SLIDE 7: Финал / Ужин ─── */
+/* ─── SLIDE 7: Появление ведущего + Номер с лунами ─── */
+function SlideHost() {
+  return (
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      {/* место под картинку */}
+      <div style={{ flex:"0 0 36%", background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)", display:"flex", alignItems:"center", justifyContent:"center", position:"relative", flexShrink:0 }}>
+        <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.4em", opacity:0.22 }}>
+          <div style={{ width:"2.5rem", height:"2px", background:"#a8926f" }} />
+          <div style={{ width:"1.5rem", height:"2px", background:"#a8926f" }} />
+        </div>
+      </div>
+      <div style={{ flex:1, padding:"4% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>06 — Блок 1</p>
+        <div style={{ display:"flex", flexDirection:"column", gap:"1.1em", animation:"su 0.9s ease-out 0.15s both" }}>
+          <div>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.8rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.4em", letterSpacing:"0.02em" }}>Появление ведущего</h3>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
+              После трека и слов Игоря Алексеевича зал словно делает вдох — и в этой тишине появляется ведущий. Он не выходит на сцену — он проходит сквозь зал, среди людей, среди столов и взглядов. Останавливается у каждой женщины, как будто видит её впервые — и говорит о ней словами поэтов: строчками, которые были написаны века назад, но звучат как сейчас, как здесь, как о ней.
+            </p>
+          </div>
+          <div style={{ borderTop:"1px solid rgba(200,184,154,0.4)", paddingTop:"1em" }}>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.8rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.4em", letterSpacing:"0.02em" }}>Номер с лунами · Оркестр</h3>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.75, color:"#4a3520", margin:0 }}>
+              Луна — вечный спутник земли. Так и женщина — она всегда рядом, освещает путь, не требуя слов. На экране разворачивается большая луна, а в зале танцовщики работают со светящимися сферами разных размеров: в этой семье каждая — от самой младшей до старшей — светит по-своему. Действие нарастает, и в определённый момент на сцену выходит старший сын Александр — и продолжает перформанс своими словами. Возможен выход всех троих сыновей: три голоса, три луны, один свет.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 8: Блок 2 — На стыке времён ─── */
+function SlideBlock2() {
+  return (
+    <div style={{ width:"100%", height:"100%", padding:"4% 6%", boxSizing:"border-box", display:"flex", flexDirection:"column" }}>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>07 — Блок 2</p>
+      <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
+        Номер на стыке времён
+      </h2>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2%", flex:1, animation:"su 0.9s ease-out 0.2s both" }}>
+        {/* левая карточка — перформанс */}
+        <div style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
+          <div style={{ flex:"0 0 42%", background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)", position:"relative" }}>
+            <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.3em", opacity:0.22 }}>
+              <div style={{ width:"2rem", height:"2px", background:"#a8926f" }} />
+              <div style={{ width:"1.2rem", height:"2px", background:"#a8926f" }} />
+            </div>
+          </div>
+          <div style={{ padding:"5% 6%", flex:1 }}>
+            <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.76rem,1.2vw,0.96rem)", color:"#3d2b1a", marginBottom:"0.45em", lineHeight:1.2 }}>Хаос как творчество</h4>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.72, color:"#4a3520", margin:0 }}>
+              Всё начинается с шума — стук по бокалу, шорох бумаги, звук обуви по паркету. Один инструмент подхватывает другой, голоса вступают сами, танец рождается стихийно. Нет порядка — есть вдохновение. Каждый живёт своей историей, но все вместе сливаются в единый творческий порыв. Стилистика — на стыке классики и современного репа.
+            </p>
+          </div>
+        </div>
+        {/* правая карточка — голограмма */}
+        <div style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
+          <div style={{ flex:"0 0 42%", background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)", position:"relative" }}>
+            <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.3em", opacity:0.22 }}>
+              <div style={{ width:"2rem", height:"2px", background:"#a8926f" }} />
+              <div style={{ width:"1.2rem", height:"2px", background:"#a8926f" }} />
+            </div>
+          </div>
+          <div style={{ padding:"5% 6%", flex:1 }}>
+            <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.76rem,1.2vw,0.96rem)", color:"#3d2b1a", marginBottom:"0.45em", lineHeight:1.2 }}>Появление голограммы поэта</h4>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.72, color:"#4a3520", margin:0 }}>
+              Световая отбивка — и на прозрачном экране возникает силуэт. Поэт обращается к залу: цитирует себя, говорит о женщине языком своего времени. А в финале подводит мысль к сегодняшнему дню — туда, где о женщинах говорят уже иначе: в песнях, в рэпе, в ритме улицы.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 9: Финал / Ужин ─── */
 function SlideDinner() {
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
