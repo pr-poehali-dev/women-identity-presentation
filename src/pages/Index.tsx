@@ -271,34 +271,39 @@ function SlideHosts() {
   );
 }
 
-/* ─── SLIDE 6: Программа ─── */
+/* ─── SLIDE 5: Ход вечера / Интро ─── */
 function SlideProgram() {
-  const blocks = [
-    { time:"Начало", icon:"🎻", title:"Живая музыка — открытие",   desc:"Скрипка, гитара, клавиши. Первый образ женщины — как инструмент." },
-    { time:"Блок 1", icon:"🎭", title:"Поэты и голограммы",        desc:"На прозрачных экранах — образы известных поэтов и композиторов." },
-    { time:"Блок 2", icon:"💃", title:"Женщина — это танец",        desc:"Танго и вальс. Выход танцоров, атмосферный видеоарт." },
-    { time:"Блок 3", icon:"🎤", title:"Личное слово",               desc:"Мужчина из зала выходит на сцену, произносит речь и дарит подарок." },
-    { time:"Блок 4", icon:"🎵", title:"Женщина — это песня",        desc:"Лиричная, весёлая, рок — все образы через живое исполнение." },
-    { time:"Финал",  icon:"✦",  title:"Торжественный ужин",         desc:"Левитирующий стол опускается. Праздничный ужин при живой музыке." },
+  const points = [
+    "Зал превращается в мастерскую творцов — живую студию, где рождается искусство прямо на глазах у гостей.",
+    "Стены дышат проекциями эскизов, набросков и картин — пространство само становится холстом.",
+    "Лики женщин семьи вписаны в полотна великих мастеров: их портреты смотрят со стен мастерской.",
+    "Художники с мольбертами работают в реальном времени — каждый штрих здесь и сейчас, при гостях.",
+    "В мольберт встроен экран: герой рождается в рисунке — и в нужный момент оживает как голограмма.",
+    "Оркестр растворён в зале среди гостей — скрипка, гитара, рояль звучат как воздух на протяжении всего вечера.",
   ];
   return (
-    <div style={{ width:"100%", height:"100%", padding:"4.5% 6%", boxSizing:"border-box", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>04 — Программа</p>
-      <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
-        Ход вечера<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>по блокам</span>
-      </h2>
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"1.4% 1.8%", flex:1, maxHeight:"68%", animation:"su 0.9s ease-out 0.2s both" }}>
-        {blocks.map((b, i) => (
-          <div key={i} style={{ border:"1px solid #d4c4a8", padding:"4% 5%", background:"rgba(250,248,244,0.7)", display:"flex", flexDirection:"column", position:"relative" }}>
-            <div style={{ position:"absolute", top:0, left:0, right:0, height:"2px", background:"linear-gradient(90deg, #c8b89a, transparent)" }} />
-            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"0.55em" }}>
-              <span style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.48rem", letterSpacing:"0.18em", textTransform:"uppercase", color:"#a8926f", border:"1px solid #c8b89a", padding:"0.2em 0.55em" }}>{b.time}</span>
-              <span style={{ fontSize:"0.95em" }}>{b.icon}</span>
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      {/* место под картинку */}
+      <div style={{ flex:"0 0 36%", background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)", display:"flex", alignItems:"center", justifyContent:"center", position:"relative", flexShrink:0 }}>
+        <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.4em", opacity:0.25 }}>
+          <div style={{ width:"2.5rem", height:"2px", background:"#a8926f" }} />
+          <div style={{ width:"1.5rem", height:"2px", background:"#a8926f" }} />
+        </div>
+      </div>
+
+      <div style={{ flex:1, padding:"4.5% 5.5%", display:"flex", flexDirection:"column", justifyContent:"center", overflow:"hidden" }}>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>04 — Ход вечера</p>
+        <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
+          Интро<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>открытие вечера</span>
+        </h2>
+        <div style={{ display:"flex", flexDirection:"column", gap:"0.6em", animation:"su 0.9s ease-out 0.2s both" }}>
+          {points.map((p, i) => (
+            <div key={i} style={{ display:"flex", gap:"0.75em", alignItems:"flex-start" }}>
+              <div style={{ width:"1.4rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.6em" }} />
+              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.65, color:"#4a3520", margin:0 }}>{p}</p>
             </div>
-            <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:400, fontSize:"clamp(0.7rem,1.1vw,0.88rem)", color:"#3d2b1a", marginBottom:"0.35em", lineHeight:1.22 }}>{b.title}</h4>
-            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.74rem)", lineHeight:1.68, color:"#6b5030" }}>{b.desc}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
