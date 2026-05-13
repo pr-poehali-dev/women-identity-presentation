@@ -1,374 +1,420 @@
 import { useState, useEffect } from "react";
 
-const VIOLIN_IMAGE = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/0976c540-7a65-4e02-a439-61885279e916.jpg";
-const TANGO_IMAGE = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/8ba7ac5c-218c-41ff-aab0-b14ecafcf080.jpg";
-const STAGE_IMAGE = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/772a8771-ae97-47cc-a93b-8eaadc611397.jpg";
+/* ─── Images ─── */
+const IMG = {
+  hall:        "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/2d7def33-d8fd-4c29-b25f-1e341ef30bef.jpg",
+  levitate:    "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/9dd3ed84-1c22-4619-94ac-7a109aeb4d0d.jpg",
+  hologram:    "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/17affe9a-fa0e-4408-9ea6-eb0a21533792.jpg",
+  poet:        "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/7d1c014d-6c49-4c66-9175-e3facc0b91fc.jpg",
+  dinner:      "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/5f0ef1d5-de87-4b17-a85f-2b771c80519f.jpg",
+  speech:      "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/3bb0b52e-11b1-4185-a174-e7ec49f4b2e6.jpg",
+  cello:       "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/1b71f129-e0c3-4ee5-a63e-4674b3cd664d.jpg",
+  tango:       "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/60128de9-3c6b-4cf4-874d-e6504fa8023b.jpg",
+};
 
-const SLIDES_COUNT = 3;
+const SLIDES = ["title","concept","venues","scenography","hosts","program","dinner"] as const;
+type SlideId = typeof SLIDES[number];
+
+const KF = `
+  @keyframes su { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+`;
 
 export default function Index() {
-  const [current, setCurrent] = useState(0);
-  const [animating, setAnimating] = useState(false);
+  const [idx, setIdx]         = useState(0);
   const [visible, setVisible] = useState(true);
+  const [busy, setBusy]       = useState(false);
 
-  const goTo = (index: number) => {
-    if (animating || index === current) return;
-    setAnimating(true);
+  const goTo = (i: number) => {
+    if (busy || i === idx || i < 0 || i >= SLIDES.length) return;
+    setBusy(true);
     setVisible(false);
-    setTimeout(() => {
-      setCurrent(index);
-      setVisible(true);
-      setAnimating(false);
-    }, 380);
+    setTimeout(() => { setIdx(i); setVisible(true); setBusy(false); }, 360);
   };
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") goTo(Math.min(current + 1, SLIDES_COUNT - 1));
-      if (e.key === "ArrowLeft" || e.key === "ArrowUp") goTo(Math.max(current - 1, 0));
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") goTo(idx + 1);
+      if (e.key === "ArrowLeft"  || e.key === "ArrowUp")   goTo(idx - 1);
     };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [current, animating]);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [idx, busy]);
+
+  const slide = SLIDES[idx];
 
   return (
     <div style={{
+      background: "#f0ebe3",
       minHeight: "100vh",
-      background: "linear-gradient(155deg, #faf8f4 0%, #f5efe6 45%, #ede6d8 100%)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
       fontFamily: "'Cormorant', serif",
-      position: "relative",
-      overflow: "hidden",
+      padding: "1.8vh 1.8vw",
+      boxSizing: "border-box",
     }}>
-      {/* Grain overlay */}
-      <div style={{
-        position: "fixed", inset: 0,
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E")`,
-        pointerEvents: "none", zIndex: 0,
-      }} />
+      <style>{KF}</style>
 
-      {/* Decorative frame lines */}
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        <div style={{ position: "absolute", top: "10%", left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent 5%, #c8b89a 35%, #c8b89a 65%, transparent 95%)", opacity: 0.22 }} />
-        <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent 5%, #c8b89a 35%, #c8b89a 65%, transparent 95%)", opacity: 0.22 }} />
-        <div style={{ position: "absolute", top: 0, bottom: 0, left: "5%", width: "1px", background: "linear-gradient(180deg, transparent 8%, #c8b89a 30%, #c8b89a 70%, transparent 92%)", opacity: 0.18 }} />
-        <div style={{ position: "absolute", top: 0, bottom: 0, right: "5%", width: "1px", background: "linear-gradient(180deg, transparent 8%, #c8b89a 30%, #c8b89a 70%, transparent 92%)", opacity: 0.18 }} />
-      </div>
-
-      {/* Slide */}
+      {/* 16:9 slide */}
       <div style={{
-        position: "relative", zIndex: 1, minHeight: "100vh",
-        transition: "opacity 0.38s ease, transform 0.38s ease",
+        width: "min(calc(100vw - 3.6vw), calc((100vh - 8vh) * 16 / 9))",
+        aspectRatio: "16 / 9",
+        position: "relative",
+        background: "linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)",
+        boxShadow: "0 10px 70px rgba(50,25,8,0.16), 0 2px 12px rgba(50,25,8,0.08)",
+        overflow: "hidden",
+        transition: "opacity 0.36s ease, transform 0.36s ease",
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(14px)",
+        transform: visible ? "translateY(0)" : "translateY(10px)",
       }}>
-        {current === 0 && <SlideTitle />}
-        {current === 1 && <SlideConcept />}
-        {current === 2 && <SlideVisual />}
+        {/* Grain */}
+        <div style={{ position:"absolute", inset:0, pointerEvents:"none", zIndex:0,
+          backgroundImage:`url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E")` }} />
+        <FrameLines />
+
+        {/* Counter */}
+        <div style={{ position:"absolute", top:"4%", right:"4.5%", zIndex:20,
+          fontFamily:"'Montserrat', sans-serif", fontSize:"0.58rem",
+          letterSpacing:"0.22em", color:"#a8926f", opacity:0.65 }}>
+          {String(idx+1).padStart(2,"0")} / {String(SLIDES.length).padStart(2,"0")}
+        </div>
+
+        <div style={{ position:"relative", zIndex:1, width:"100%", height:"100%" }}>
+          {slide === "title"       && <SlideTitle />}
+          {slide === "concept"     && <SlideConcept />}
+          {slide === "venues"      && <SlideVenues />}
+          {slide === "scenography" && <SlideScenography />}
+          {slide === "hosts"       && <SlideHosts />}
+          {slide === "program"     && <SlideProgram />}
+          {slide === "dinner"      && <SlideDinner />}
+        </div>
       </div>
 
-      {/* Slide counter */}
-      <div style={{
-        position: "fixed", top: "2rem", right: "6.5%",
-        fontFamily: "'Montserrat', sans-serif",
-        fontSize: "0.6rem", letterSpacing: "0.22em",
-        color: "#a8926f", opacity: 0.65, zIndex: 10,
-      }}>
-        {String(current + 1).padStart(2, "0")} / {String(SLIDES_COUNT).padStart(2, "0")}
-      </div>
-
-      {/* Prev / Next arrows */}
-      {[
-        { side: "left", dir: -1, symbol: "‹", disabled: current === 0 },
-        { side: "right", dir: 1, symbol: "›", disabled: current === SLIDES_COUNT - 1 },
-      ].map(({ side, dir, symbol, disabled }) => (
-        <button key={side} onClick={() => goTo(current + dir)} style={{
-          position: "fixed", [side]: "1.8rem", top: "50%", transform: "translateY(-50%)",
-          background: "rgba(200,184,154,0.14)", border: "1px solid rgba(200,184,154,0.5)",
-          borderRadius: "50%", width: "2.4rem", height: "2.4rem",
-          cursor: disabled ? "default" : "pointer",
-          opacity: disabled ? 0.15 : 0.65,
-          color: "#6b5540", fontSize: "1.25rem", zIndex: 10,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          transition: "opacity 0.3s, background 0.3s",
-          fontFamily: "serif",
-        }}
-          onMouseEnter={e => { if (!disabled) e.currentTarget.style.opacity = "1"; }}
-          onMouseLeave={e => { if (!disabled) e.currentTarget.style.opacity = "0.65"; }}
-        >{symbol}</button>
-      ))}
-
-      {/* Dot nav */}
-      <nav style={{
-        position: "fixed", bottom: "2.2rem", left: "50%", transform: "translateX(-50%)",
-        display: "flex", gap: "0.65rem", zIndex: 10, alignItems: "center",
-      }}>
-        {Array.from({ length: SLIDES_COUNT }).map((_, i) => (
+      {/* Dots */}
+      <div style={{ display:"flex", gap:"0.55rem", marginTop:"1.5vh", alignItems:"center" }}>
+        {SLIDES.map((_, i) => (
           <button key={i} onClick={() => goTo(i)} style={{
-            width: current === i ? "2.2rem" : "0.45rem",
-            height: "0.45rem", borderRadius: "100px",
-            background: current === i ? "#8b6e4e" : "#c8b89a",
-            border: "none", cursor: "pointer",
-            transition: "all 0.4s ease", padding: 0,
+            width: idx===i ? "1.9rem" : "0.38rem", height:"0.38rem",
+            borderRadius:"100px", border:"none", cursor:"pointer", padding:0,
+            background: idx===i ? "#8b6e4e" : "#c8b89a",
+            transition:"all 0.35s ease",
           }} />
         ))}
-      </nav>
+      </div>
+
+      {/* Arrows */}
+      {([
+        { side:"left",  dir:-1, sym:"‹", dis: idx===0 },
+        { side:"right", dir: 1, sym:"›", dis: idx===SLIDES.length-1 },
+      ] as const).map(({ side, dir, sym, dis }) => (
+        <button key={side} onClick={() => goTo(idx+dir)} style={{
+          position:"fixed", [side]:"1rem", top:"50%", transform:"translateY(-50%)",
+          background:"rgba(200,184,154,0.14)", border:"1px solid rgba(200,184,154,0.4)",
+          borderRadius:"50%", width:"2.1rem", height:"2.1rem",
+          cursor: dis ? "default" : "pointer", opacity: dis ? 0.1 : 0.55,
+          color:"#6b5540", fontSize:"1.3rem", zIndex:10,
+          display:"flex", alignItems:"center", justifyContent:"center",
+          fontFamily:"serif", transition:"opacity 0.25s",
+        }}>{sym}</button>
+      ))}
     </div>
   );
 }
 
-/* ─── SLIDE 1: Title ─── */
+/* ─── SLIDE 1: Обложка ─── */
 function SlideTitle() {
   return (
-    <div style={{
-      minHeight: "100vh", display: "flex", alignItems: "center",
-      justifyContent: "center", padding: "4rem 8%", position: "relative",
-    }}>
-      <img src={VIOLIN_IMAGE} alt="" style={{
-        position: "absolute", right: "5%", top: "50%", transform: "translateY(-50%)",
-        width: "36%", maxWidth: "460px", opacity: 0.16,
-        filter: "sepia(25%) contrast(0.9)", pointerEvents: "none",
-      }} />
-      <img src={TANGO_IMAGE} alt="" style={{
-        position: "absolute", left: "2%", bottom: "6%",
-        width: "16%", maxWidth: "200px", opacity: 0.09,
-        filter: "sepia(20%)", pointerEvents: "none",
-      }} />
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", padding:"5% 8%", boxSizing:"border-box", position:"relative" }}>
+      <img src={IMG.cello} alt="" style={{ position:"absolute", right:"3%", top:"50%", transform:"translateY(-50%)", width:"40%", opacity:0.13, filter:"sepia(20%)", pointerEvents:"none" }} />
+      <img src={IMG.tango} alt="" style={{ position:"absolute", left:"1%", bottom:"4%", width:"15%", opacity:0.08, filter:"sepia(15%)", pointerEvents:"none" }} />
 
-      <div style={{ maxWidth: "700px", position: "relative" }}>
-        <p style={tagStyle}>Концепция события</p>
+      <div style={{ maxWidth:"56%", position:"relative" }}>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Концепция мероприятия · 2025</p>
 
-        <h1 style={{
-          fontFamily: "'Cormorant', serif", fontWeight: 300,
-          fontSize: "clamp(2.8rem, 5.5vw, 5.2rem)", lineHeight: 1.04,
-          color: "#3d2b1a", marginBottom: "1rem", letterSpacing: "0.02em",
-          animation: "su 0.9s ease-out 0.1s both",
-        }}>
-          Между ты и она
+        <h1 style={{ fontFamily:"'Cormorant', serif", fontWeight:300,
+          fontSize:"clamp(1.6rem,4vw,3.4rem)", lineHeight:1.06, color:"#3d2b1a",
+          marginBottom:"0.5em", letterSpacing:"0.015em", animation:"su 0.85s ease-out 0.08s both" }}>
+          ВЕЧНОСТЬ<br/>
+          <span style={{ fontSize:"0.72em", color:"#6b5030" }}>ТВОРЦЫ ГОВОРЯТ</span><br/>
+          <span style={{ fontStyle:"italic", fontSize:"0.7em", color:"#7a5c3a" }}>О ЖЕНЩИНАХ</span>
         </h1>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.9rem", animation: "su 0.8s ease-out 0.25s both" }}>
-          <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, #c8b89a, transparent)" }} />
-          <span style={{ color: "#a8926f", fontSize: "0.85rem" }}>✦</span>
-          <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, transparent, #c8b89a)" }} />
-        </div>
+        <Divider delay="0.22s" />
 
-        <h2 style={{
-          fontFamily: "'Cormorant', serif", fontWeight: 300, fontStyle: "italic",
-          fontSize: "clamp(1.5rem, 2.8vw, 2.5rem)", lineHeight: 1.1,
-          color: "#7a5c3a", marginBottom: "3rem", letterSpacing: "0.04em",
-          animation: "su 0.9s ease-out 0.3s both",
-        }}>
-          Лабиринты женских миров
+        <h2 style={{ fontFamily:"'Cormorant', serif", fontWeight:300,
+          fontSize:"clamp(0.85rem,1.8vw,1.45rem)", lineHeight:1.2, color:"#a8926f",
+          marginBottom:"1.5em", letterSpacing:"0.04em", animation:"su 0.85s ease-out 0.32s both" }}>
+          МЕЖДУ ТЫ И ОНА · ЛАБИРИНТЫ ЖЕНСКИХ МИРОВ
         </h2>
 
-        <p style={{ ...bodyText, maxWidth: "570px", animation: "su 1s ease-out 0.45s both" }}>
-          Существует множество жанров, в каждом из них восхваляется женский образ: красота души и тела. Через музыку, кино, поэзию — вдохновимся классикой и внедрим женщин семьи и мужчин, которые скажут им приятные слова.
-        </p>
-
-        <p style={{ ...bodyTextItalic, maxWidth: "570px", marginTop: "1.2rem", animation: "su 1s ease-out 0.6s both" }}>
-          Используя контент и жанры, мы описываем женщин в зале. Так действие идёт по блокам — от образа к живому слову.
-        </p>
-
-        <div style={{ display: "flex", gap: "2.5rem", marginTop: "3rem", animation: "su 1s ease-out 0.75s both" }}>
-          {["🎻 Скрипка", "🎸 Гитара", "🎹 Клавиши"].map((item) => (
-            <p key={item} style={tagStyle}>{item}</p>
-          ))}
+        <div style={{ display:"flex", flexWrap:"wrap", gap:"1em 2.5em", animation:"su 0.9s ease-out 0.45s both" }}>
+          <InfoRow icon="📅" label="Дата" value="19–20 мая или 25–26 мая" />
+          <InfoRow icon="🏛️" label="Место" value="Филармония / Хаят" />
+          <InfoRow icon="📍" label="Адрес" value="Карла Либкнехта, 38А / Ельцина, 8" />
         </div>
       </div>
-      <Keyframes />
     </div>
   );
 }
 
-/* ─── SLIDE 2: Concept ─── */
+/* ─── SLIDE 2: Концепция ─── */
 function SlideConcept() {
   return (
-    <div style={{
-      minHeight: "100vh", display: "flex", alignItems: "center",
-      padding: "4rem 8%", gap: "5%", position: "relative",
-    }}>
-      <div style={{ flex: "0 0 36%", animation: "su 0.9s ease-out both" }}>
-        <div style={{ border: "1px solid #c8b89a", padding: "1.4rem", position: "relative" }}>
-          <Corner pos="top-left" />
-          <Corner pos="bottom-right" />
-          <img src={VIOLIN_IMAGE} alt="Женщина со скрипкой" style={{
-            width: "100%", display: "block",
-            filter: "sepia(12%) contrast(0.88) brightness(1.05)",
-          }} />
-        </div>
-        <p style={{ ...tagStyle, textAlign: "center", marginTop: "1rem" }}>Женщина — это инструмент</p>
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      <div style={{ flex:"0 0 36%", position:"relative", overflow:"hidden" }}>
+        <img src={IMG.cello} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(18%) contrast(0.87) brightness(1.06)", opacity:0.85 }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 60%, #f5efe6)" }} />
       </div>
-
-      <div style={{ flex: 1, animation: "su 0.9s ease-out 0.2s both" }}>
-        <p style={tagStyle}>01 — Концепция</p>
-        <h2 style={{ ...sectionTitle, marginBottom: "2.2rem" }}>
-          Основная идея<br />
-          <span style={{ fontStyle: "italic", color: "#7a5c3a" }}>и философия</span>
+      <div style={{ flex:1, padding:"5.5% 5.5% 5.5% 5%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>01 — Концепция / Смыслы</p>
+        <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
+          Основная идея<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и философия события</span>
         </h2>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.6rem" }}>
+        <p style={{ ...BODY, maxWidth:"96%", marginTop:"0.8em", animation:"su 0.9s ease-out 0.2s both" }}>
+          Существует множество жанров, в каждом из них восхваляется женский образ: красота души и тела. Через музыку, кино, поэзию — вдохновимся классикой и внедрим женщин семьи и мужчин, которые скажут им приятные слова.
+        </p>
+        <div style={{ display:"flex", flexDirection:"column", gap:"0.7em", marginTop:"1.2em", animation:"su 1s ease-out 0.32s both" }}>
           {[
-            { icon: "🎻", label: "Скрипка / Гитара / Клавиши", text: "Женщина — это инструмент. Каждый тембр, каждая струна — отражение её характера и души." },
-            { icon: "💃", label: "Танго / Вальс", text: "Женщина — это танец. Движение, пластика, страсть — язык тела говорит громче слов." },
-            { icon: "🎵", label: "Лирика / Рок / Радость", text: "Женщина — это песня. От нежной колыбельной до пронзительного рока — вся гамма." },
-          ].map((item) => (
-            <div key={item.label} style={{ display: "flex", gap: "1.2rem", alignItems: "flex-start" }}>
-              <div style={{
-                width: "2.4rem", height: "2.4rem", flexShrink: 0,
-                border: "1px solid #c8b89a",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "1rem",
-              }}>{item.icon}</div>
+            { icon:"🎻", t:"Женщина — это инструмент", d:"Скрипка / гитара / клавиши" },
+            { icon:"💃", t:"Женщина — это танец",     d:"Танго / вальс" },
+            { icon:"🎵", t:"Женщина — это песня",     d:"Лиричная, весёлая, рок" },
+          ].map(item => (
+            <div key={item.t} style={{ display:"flex", gap:"0.7em", alignItems:"center" }}>
+              <span style={{ fontSize:"1em" }}>{item.icon}</span>
+              <span style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.75rem,1.25vw,1rem)", fontWeight:500, color:"#3d2b1a" }}>{item.t}</span>
+              <span style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.14em", color:"#a8926f", textTransform:"uppercase" }}>{item.d}</span>
+            </div>
+          ))}
+        </div>
+        <p style={{ ...BODY_ITALIC, marginTop:"1em", animation:"su 1s ease-out 0.48s both" }}>
+          Образы известных поэтов, уральских композиторов появятся на прозрачных экранах. После — мужчина из зала произносит речь для своих женщин.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 3: Площадки ─── */
+function SlideVenues() {
+  return (
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      <VenueCard img={IMG.hall}   name="Филармония"     address="ул. Карла Либкнехта, 38А" desc="Классический концертный зал с богатой акустикой. Идеально для живой музыки и театральных постановок." tags={["Классика","Акустика","Зрительный зал"]} />
+      <div style={{ width:"1px", background:"rgba(200,184,154,0.3)", flexShrink:0 }} />
+      <VenueCard img={IMG.dinner} name="Hyatt Regency" address="ул. Бориса Ельцина, 8"    desc="Роскошный зал для торжественных ужинов. Современные технические возможности и высокий уровень сервиса." tags={["Ужин","Технологии","Панорама"]} />
+    </div>
+  );
+}
+
+function VenueCard({ img, name, address, desc, tags }: { img:string; name:string; address:string; desc:string; tags:string[] }) {
+  return (
+    <div style={{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden" }}>
+      <div style={{ flex:"0 0 58%", position:"relative", overflow:"hidden" }}>
+        <img src={img} alt={name} style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(15%) contrast(0.87) brightness(1.06)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(0deg, #f5efe6 0%, transparent 50%)" }} />
+      </div>
+      <div style={{ flex:1, padding:"4% 7%", background:"rgba(250,248,244,0.97)" }}>
+        <p style={{ ...TAG, marginBottom:"0.4em", animation:"su 0.7s ease-out both" }}>{address}</p>
+        <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:300, fontSize:"clamp(1.1rem,2.5vw,1.8rem)", color:"#3d2b1a", marginBottom:"0.45em", lineHeight:1.1, animation:"su 0.8s ease-out 0.1s both" }}>{name}</h3>
+        <p style={{ ...BODY, fontSize:"clamp(0.65rem,1vw,0.83rem)", animation:"su 0.9s ease-out 0.2s both" }}>{desc}</p>
+        <div style={{ display:"flex", gap:"0.45em", marginTop:"0.7em", flexWrap:"wrap", animation:"su 0.9s ease-out 0.3s both" }}>
+          {tags.map(t => <span key={t} style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.48rem", letterSpacing:"0.16em", textTransform:"uppercase", color:"#a8926f", border:"1px solid #c8b89a", padding:"0.2em 0.6em" }}>{t}</span>)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 4: Сценография ─── */
+function SlideScenography() {
+  return (
+    <div style={{ width:"100%", height:"100%", padding:"4.5% 6%", boxSizing:"border-box", display:"flex", flexDirection:"column", justifyContent:"center" }}>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>02 — Сценография</p>
+      <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
+        Технические решения<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и оформление</span>
+      </h2>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"1.8%", flex:1, maxHeight:"70%", animation:"su 0.9s ease-out 0.2s both" }}>
+        <SceneCard img={IMG.levitate} title="Левитирующий стол"              text="Арт-объект под потолком плавно опускается в нужный момент и становится праздничным столом для ужина." />
+        <SceneCard img={IMG.hologram} title="Прозрачные экраны и голограммы" text="Образы поэтов и уральских композиторов на прозрачных полотнах. Контент постоянно меняет пространство." />
+        <SceneCard img={IMG.poet}     title="Проекции на стены"               text="Атмосферный видеоарт заполняет зал. Смена контента создаёт непрерывно меняющуюся среду вокруг гостей." />
+      </div>
+    </div>
+  );
+}
+
+function SceneCard({ img, title, text }: { img:string; title:string; text:string }) {
+  return (
+    <div style={{ border:"1px solid #d4c4a8", overflow:"hidden", display:"flex", flexDirection:"column", background:"rgba(250,248,244,0.7)" }}>
+      <div style={{ flex:"0 0 54%", overflow:"hidden" }}>
+        <img src={img} alt={title} style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(16%) contrast(0.86) brightness(1.07)", transition:"transform 0.5s ease" }}
+          onMouseEnter={e=>(e.currentTarget.style.transform="scale(1.05)")}
+          onMouseLeave={e=>(e.currentTarget.style.transform="scale(1)")} />
+      </div>
+      <div style={{ flex:1, padding:"5% 6%" }}>
+        <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:400, fontSize:"clamp(0.72rem,1.2vw,0.92rem)", color:"#3d2b1a", marginBottom:"0.4em", lineHeight:1.2 }}>{title}</h4>
+        <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.88vw,0.75rem)", lineHeight:1.68, color:"#6b5030" }}>{text}</p>
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 5: Ведущие ─── */
+function SlideHosts() {
+  const hosts = [
+    { name:"Артём Ткаченко",        role:"Актёр театра и кино" },
+    { name:"Александр Петров",      role:"Актёр театра и кино" },
+    { name:"Константин Хабенский", role:"Актёр театра и кино" },
+    { name:"Вадим Демчог",          role:"Актёр, ведущий" },
+    { name:"Сергей Безруков",       role:"Актёр театра и кино" },
+    { name:"Глеб Яковенко",         role:"Екатеринбург" },
+    { name:"Сергей Заикин",         role:"Екатеринбург" },
+    { name:"Александр Хворов",      role:"Екатеринбург" },
+  ];
+  return (
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      <div style={{ flex:"0 0 30%", position:"relative", overflow:"hidden" }}>
+        <img src={IMG.speech} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(18%) contrast(0.87) brightness(1.06)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 50%, #f5efe6)" }} />
+      </div>
+      <div style={{ flex:1, padding:"5% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>03 — Ведущие</p>
+        <h2 style={{ ...H2, marginBottom:"4%", animation:"su 0.8s ease-out 0.1s both" }}>
+          Кандидаты<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>на роль ведущего</span>
+        </h2>
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.8em 2.5em", animation:"su 0.9s ease-out 0.2s both" }}>
+          {hosts.map((h, i) => (
+            <div key={i} style={{ display:"flex", gap:"0.7em", alignItems:"flex-start", borderBottom:"1px solid rgba(200,184,154,0.3)", paddingBottom:"0.6em" }}>
+              <div style={{ width:"0.3rem", height:"0.3rem", background:"#c8b89a", borderRadius:"50%", marginTop:"0.45em", flexShrink:0 }} />
               <div>
-                <p style={{ ...tagStyle, marginBottom: "0.3rem" }}>{item.label}</p>
-                <p style={bodyText}>{item.text}</p>
+                <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.75rem,1.2vw,0.95rem)", color:"#3d2b1a", lineHeight:1.2 }}>{h.name}</p>
+                <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.13em", textTransform:"uppercase", color:"#a8926f", marginTop:"0.12em" }}>{h.role}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <Keyframes />
     </div>
   );
 }
 
-/* ─── SLIDE 3: Visual ─── */
-function SlideVisual() {
+/* ─── SLIDE 6: Программа ─── */
+function SlideProgram() {
+  const blocks = [
+    { time:"Начало", icon:"🎻", title:"Живая музыка — открытие",   desc:"Скрипка, гитара, клавиши. Первый образ женщины — как инструмент." },
+    { time:"Блок 1", icon:"🎭", title:"Поэты и голограммы",        desc:"На прозрачных экранах — образы известных поэтов и уральских композиторов." },
+    { time:"Блок 2", icon:"💃", title:"Женщина — это танец",        desc:"Танго и вальс. Выход танцоров, атмосферный видеоарт." },
+    { time:"Блок 3", icon:"🎤", title:"Личное слово",               desc:"Мужчина из зала выходит на сцену, произносит речь и дарит подарок." },
+    { time:"Блок 4", icon:"🎵", title:"Женщина — это песня",        desc:"Лиричная, весёлая, рок — все образы через живое исполнение." },
+    { time:"Финал",  icon:"✦",  title:"Торжественный ужин",         desc:"Левитирующий стол опускается. Праздничный ужин при живой музыке." },
+  ];
   return (
-    <div style={{
-      minHeight: "100vh", display: "flex", flexDirection: "column",
-      padding: "4rem 8% 6rem", justifyContent: "center", position: "relative",
-    }}>
-      <p style={{ ...tagStyle, animation: "su 0.8s ease-out both" }}>02 — Визуал</p>
-      <h2 style={{ ...sectionTitle, marginBottom: "2.8rem", animation: "su 0.9s ease-out 0.1s both" }}>
-        Оформление сцены<br />
-        <span style={{ fontStyle: "italic", color: "#7a5c3a" }}>и технологии</span>
+    <div style={{ width:"100%", height:"100%", padding:"4.5% 6%", boxSizing:"border-box", display:"flex", flexDirection:"column", justifyContent:"center" }}>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>04 — Программа</p>
+      <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
+        Ход вечера<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>по блокам</span>
       </h2>
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"1.4% 1.8%", flex:1, maxHeight:"68%", animation:"su 0.9s ease-out 0.2s both" }}>
+        {blocks.map((b, i) => (
+          <div key={i} style={{ border:"1px solid #d4c4a8", padding:"4% 5%", background:"rgba(250,248,244,0.7)", display:"flex", flexDirection:"column", position:"relative" }}>
+            <div style={{ position:"absolute", top:0, left:0, right:0, height:"2px", background:"linear-gradient(90deg, #c8b89a, transparent)" }} />
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"0.55em" }}>
+              <span style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.48rem", letterSpacing:"0.18em", textTransform:"uppercase", color:"#a8926f", border:"1px solid #c8b89a", padding:"0.2em 0.55em" }}>{b.time}</span>
+              <span style={{ fontSize:"0.95em" }}>{b.icon}</span>
+            </div>
+            <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:400, fontSize:"clamp(0.7rem,1.1vw,0.88rem)", color:"#3d2b1a", marginBottom:"0.35em", lineHeight:1.22 }}>{b.title}</h4>
+            <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.74rem)", lineHeight:1.68, color:"#6b5030" }}>{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-      <div style={{
-        display: "grid", gridTemplateColumns: "1fr 1fr 1fr",
-        gap: "1.4rem", animation: "su 1s ease-out 0.2s both",
-      }}>
-        <VisualCard
-          image={STAGE_IMAGE}
-          label="Сцена"
-          title="Прозрачные экраны и голограммы"
-          text="Образы поэтов и уральских композиторов появляются на прозрачных полотнах. После — живой человек из зала."
-        />
-        <VisualCard
-          image={TANGO_IMAGE}
-          label="Живая музыка"
-          title="Скрипка, гитара, клавиши"
-          text="Живой ансамбль сопровождает каждый блок. Жанр определяет образ женщины в этот момент."
-        />
-        <div style={{
-          border: "1px solid #d4c4a8", padding: "2rem",
-          background: "rgba(245,239,230,0.5)",
-          display: "flex", flexDirection: "column", justifyContent: "space-between",
-        }}>
-          <div>
-            <p style={{ ...tagStyle, marginBottom: "1.2rem" }}>Блоки действия</p>
-            <h3 style={{
-              fontFamily: "'Cormorant', serif", fontWeight: 400,
-              fontSize: "1.35rem", color: "#3d2b1a",
-              marginBottom: "1rem", lineHeight: 1.2,
-            }}>Личный момент для каждой женщины</h3>
-            <p style={bodyText}>
-              Мужчина из зала выходит на сцену и произносит речь для своих женщин. Дарит подарок — по желанию.
-            </p>
-          </div>
-          <div style={{ borderTop: "1px solid #c8b89a", paddingTop: "1.2rem", marginTop: "1.5rem" }}>
-            <p style={tagStyle}>Живые слова · Живые эмоции</p>
-          </div>
+/* ─── SLIDE 7: Финал / Ужин ─── */
+function SlideDinner() {
+  return (
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
+      <div style={{ flex:"0 0 45%", position:"relative", overflow:"hidden" }}>
+        <img src={IMG.tango} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(18%) contrast(0.87) brightness(1.05)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 55%, #f5efe6)" }} />
+        <div style={{ position:"absolute", bottom:"5%", right:"2%", width:"52%", border:"3px solid #faf8f4", overflow:"hidden", boxShadow:"0 4px 20px rgba(60,30,10,0.15)" }}>
+          <img src={IMG.dinner} alt="" style={{ width:"100%", display:"block", filter:"sepia(12%) contrast(0.88) brightness(1.07)" }} />
         </div>
       </div>
-      <Keyframes />
+      <div style={{ flex:1, padding:"5.5% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>05 — Финал</p>
+        <h2 style={{ ...H2, marginBottom:"0.8em", animation:"su 0.8s ease-out 0.1s both" }}>
+          Торжественный<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>праздничный ужин</span>
+        </h2>
+        <p style={{ ...BODY, animation:"su 0.9s ease-out 0.2s both" }}>
+          Кульминация вечера — левитирующий арт-объект плавно опускается и превращается в стол. Живая музыка, атмосфера и тепло.
+        </p>
+        <div style={{ display:"flex", flexDirection:"column", gap:"0.8em", marginTop:"1.4em", animation:"su 1s ease-out 0.32s both" }}>
+          {[
+            "Левитирующий стол — арт-объект и мебель в одном",
+            "Живая музыка во время ужина",
+            "Личные поздравления и подарки",
+            "Атмосферные проекции на стенах",
+          ].map((item, i) => (
+            <div key={i} style={{ display:"flex", gap:"0.8em", alignItems:"center" }}>
+              <div style={{ width:"1.2rem", height:"1px", background:"#c8b89a", flexShrink:0 }} />
+              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.75rem,1.15vw,0.94rem)", color:"#3d2b1a", lineHeight:1.5 }}>{item}</p>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop:"1.8em", paddingTop:"1em", borderTop:"1px solid #c8b89a", animation:"su 1s ease-out 0.5s both" }}>
+          <p style={{ fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:300, fontSize:"clamp(0.78rem,1.2vw,0.98rem)", color:"#8b6e4e", lineHeight:1.62 }}>
+            «Так действие идёт по блокам — от образа к живому слову,<br/>от живого слова к общему столу.»
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
 
-/* ─── Helpers ─── */
-function VisualCard({ image, label, title, text }: { image: string; label: string; title: string; text: string }) {
+/* ─── Shared helpers ─── */
+function FrameLines() {
   return (
-    <div style={{ border: "1px solid #d4c4a8", overflow: "hidden", background: "rgba(250,248,244,0.6)" }}>
-      <div style={{ position: "relative", overflow: "hidden", height: "185px" }}>
-        <img src={image} alt={title} style={{
-          width: "100%", height: "100%", objectFit: "cover",
-          filter: "sepia(18%) contrast(0.86) brightness(1.08)",
-          transition: "transform 0.55s ease",
-        }}
-          onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.05)")}
-          onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
-        />
-      </div>
-      <div style={{ padding: "1.4rem" }}>
-        <p style={{ ...tagStyle, marginBottom: "0.55rem" }}>{label}</p>
-        <h3 style={{
-          fontFamily: "'Cormorant', serif", fontWeight: 400,
-          fontSize: "1.25rem", color: "#3d2b1a", marginBottom: "0.7rem", lineHeight: 1.2,
-        }}>{title}</h3>
-        <p style={{ ...bodyText, fontSize: "0.93rem" }}>{text}</p>
-      </div>
+    <div style={{ position:"absolute", inset:0, pointerEvents:"none", zIndex:0 }}>
+      <div style={{ position:"absolute", top:"8%", left:0, right:0, height:"1px", background:"linear-gradient(90deg, transparent 4%, #c8b89a 30%, #c8b89a 70%, transparent 96%)", opacity:0.2 }} />
+      <div style={{ position:"absolute", bottom:"8%", left:0, right:0, height:"1px", background:"linear-gradient(90deg, transparent 4%, #c8b89a 30%, #c8b89a 70%, transparent 96%)", opacity:0.2 }} />
+      <div style={{ position:"absolute", top:0, bottom:0, left:"4%", width:"1px", background:"linear-gradient(180deg, transparent 7%, #c8b89a 28%, #c8b89a 72%, transparent 93%)", opacity:0.15 }} />
+      <div style={{ position:"absolute", top:0, bottom:0, right:"4%", width:"1px", background:"linear-gradient(180deg, transparent 7%, #c8b89a 28%, #c8b89a 72%, transparent 93%)", opacity:0.15 }} />
     </div>
   );
 }
 
-function Corner({ pos }: { pos: "top-left" | "bottom-right" }) {
-  const isTop = pos === "top-left";
+function Divider({ delay = "0s" }: { delay?: string }) {
   return (
-    <div style={{
-      position: "absolute",
-      top: isTop ? "-1px" : "auto", bottom: isTop ? "auto" : "-1px",
-      left: isTop ? "-1px" : "auto", right: isTop ? "auto" : "-1px",
-      width: "2.2rem", height: "2.2rem",
-      borderTop: isTop ? "2px solid #8b6e4e" : "none",
-      borderLeft: isTop ? "2px solid #8b6e4e" : "none",
-      borderBottom: isTop ? "none" : "2px solid #8b6e4e",
-      borderRight: isTop ? "none" : "2px solid #8b6e4e",
-    }} />
+    <div style={{ display:"flex", alignItems:"center", gap:"0.7em", margin:"0.65em 0", animation:`su 0.8s ease-out ${delay} both` }}>
+      <div style={{ flex:1, maxWidth:"7rem", height:"1px", background:"linear-gradient(90deg, #c8b89a, transparent)" }} />
+      <span style={{ color:"#a8926f", fontSize:"0.7rem" }}>✦</span>
+    </div>
   );
 }
 
-function Keyframes() {
+function InfoRow({ icon, label, value }: { icon:string; label:string; value:string }) {
   return (
-    <style>{`
-      @keyframes su {
-        from { opacity: 0; transform: translateY(20px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
-    `}</style>
+    <div>
+      <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.18em", textTransform:"uppercase", color:"#a8926f", marginBottom:"0.18em" }}>{icon} {label}</p>
+      <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.72rem,1.2vw,0.95rem)", color:"#3d2b1a", lineHeight:1.3 }}>{value}</p>
+    </div>
   );
 }
 
 /* ─── Shared styles ─── */
-const tagStyle: React.CSSProperties = {
-  fontFamily: "'Montserrat', sans-serif",
-  fontSize: "0.6rem",
-  letterSpacing: "0.28em",
-  color: "#a8926f",
-  textTransform: "uppercase",
-  marginBottom: "1.8rem",
+const TAG: React.CSSProperties = {
+  fontFamily:"'Montserrat', sans-serif", fontSize:"0.53rem",
+  letterSpacing:"0.28em", color:"#a8926f", textTransform:"uppercase", marginBottom:"1.1em",
 };
-
-const sectionTitle: React.CSSProperties = {
-  fontFamily: "'Cormorant', serif",
-  fontWeight: 300,
-  fontSize: "clamp(1.9rem, 3.2vw, 3rem)",
-  lineHeight: 1.1,
-  color: "#3d2b1a",
+const H2: React.CSSProperties = {
+  fontFamily:"'Cormorant', serif", fontWeight:300,
+  fontSize:"clamp(1.2rem,2.7vw,2.2rem)", lineHeight:1.1, color:"#3d2b1a",
 };
-
-const bodyText: React.CSSProperties = {
-  fontFamily: "'Cormorant', serif",
-  fontWeight: 400,
-  fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)",
-  lineHeight: 1.82,
-  color: "#5c4530",
+const BODY: React.CSSProperties = {
+  fontFamily:"'Cormorant', serif", fontWeight:400,
+  fontSize:"clamp(0.72rem,1.1vw,0.92rem)", lineHeight:1.82, color:"#5c4530",
 };
-
-const bodyTextItalic: React.CSSProperties = {
-  ...bodyText,
-  fontStyle: "italic",
-  fontWeight: 300,
-  color: "#8b6e4e",
+const BODY_ITALIC: React.CSSProperties = {
+  ...BODY, fontStyle:"italic", fontWeight:300, color:"#8b6e4e",
 };
