@@ -256,16 +256,21 @@ function SlideHosts() {
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2%", flex:1, animation:"su 0.9s ease-out 0.2s both" }}>
         {items.map((item, i) => (
           <div key={i} style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
-            <div style={{ flex:"0 0 58%", background:"#e8e0d4", display:"flex", alignItems:"center", justifyContent:"center", position:"relative" }}>
-              <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, #ddd5c6 0%, #e8e0d4 100%)" }} />
-              <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:"0.3em", opacity:0.3 }}>
-                <div style={{ width:"2rem", height:"2px", background:"#a8926f" }} />
-                <div style={{ width:"1.2rem", height:"2px", background:"#a8926f" }} />
-              </div>
+            <div style={{ height:"45%", minHeight:0, overflow:"hidden", position:"relative", flexShrink:0 }}>
+              <img
+                src={i === 0
+                  ? "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/a843b07a-86e6-4486-ba6b-8369456cdca9.jpg"
+                  : "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/7b704e68-64df-463d-bdb0-c36a7cbb3bc6.jpg"
+                }
+                alt={item.title}
+                style={{ width:"100%", height:"100%", objectFit:"cover", transition:"transform 0.5s ease" }}
+                onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
+                onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
+              />
             </div>
-            <div style={{ padding:"5% 6%", flex:1, display:"flex", flexDirection:"column", justifyContent:"center" }}>
-              <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.78rem,1.3vw,1rem)", color:"#3d2b1a", marginBottom:"0.4em", lineHeight:1.2 }}>{item.title}</h4>
-              {item.text && <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.9vw,0.78rem)", lineHeight:1.68, color:"#6b5030" }}>{item.text}</p>}
+            <div style={{ padding:"4% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
+              <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.76rem,1.2vw,0.96rem)", color:"#3d2b1a", marginBottom:"0.3em", lineHeight:1.2 }}>{item.title}</h4>
+              {item.text && <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.85vw,0.74rem)", lineHeight:1.62, color:"#6b5030", margin:0 }}>{item.text}</p>}
             </div>
           </div>
         ))}
