@@ -467,9 +467,9 @@ function SlideBlock3() {
 
       {/* ── ПРАВАЯ ПОЛОВИНА — Оркестр ── */}
       <div style={{ flex:1, position:"relative", overflow:"hidden" }}>
-        <img src={IMG.orchestra} alt="" style={{
+        <img src="https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/b327a86f-37ca-4ef2-a9f8-275e8dab9c77.jpg" alt="" style={{
           position:"absolute", inset:0, width:"100%", height:"100%",
-          objectFit:"cover", filter:"brightness(0.38) contrast(1.05)",
+          objectFit:"cover", filter:"brightness(0.42) contrast(1.05) sepia(18%)",
         }} />
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.92) 0%, rgba(10,4,2,0.5) 50%, transparent 100%)" }} />
 
