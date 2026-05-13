@@ -3,17 +3,17 @@ import { useState, useEffect } from "react";
 /* ─── Images ─── */
 const IMG = {
   hall:        "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/2d7def33-d8fd-4c29-b25f-1e341ef30bef.jpg",
-  levitate:    "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/9dd3ed84-1c22-4619-94ac-7a109aeb4d0d.jpg",
+  levitate:    "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/50b73ae2-50dd-4712-8a53-35794d1e014b.jpg",
   hologram:    "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/17affe9a-fa0e-4408-9ea6-eb0a21533792.jpg",
-  poet:        "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/7d1c014d-6c49-4c66-9175-e3facc0b91fc.jpg",
+  poet:        "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/ec51e0eb-6b45-4bf1-a8fc-03490839ad16.jpg",
   dinner:      "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/5f0ef1d5-de87-4b17-a85f-2b771c80519f.jpg",
   speech:      "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/3bb0b52e-11b1-4185-a174-e7ec49f4b2e6.jpg",
   cello:       "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/1b71f129-e0c3-4ee5-a63e-4674b3cd664d.jpg",
   tango:       "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/60128de9-3c6b-4cf4-874d-e6504fa8023b.jpg",
+  meanings:    "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/70132ee2-4cc1-4e44-a9ee-811dab6958c1.jpg",
 };
 
-const SLIDES = ["title","concept","venues","scenography","hosts","program","dinner"] as const;
-type SlideId = typeof SLIDES[number];
+const SLIDES = ["title","concept","scenography","hosts","program","dinner"] as const;
 
 const KF = `
   @keyframes su { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
@@ -83,7 +83,6 @@ export default function Index() {
         <div style={{ position:"relative", zIndex:1, width:"100%", height:"100%" }}>
           {slide === "title"       && <SlideTitle />}
           {slide === "concept"     && <SlideConcept />}
-          {slide === "venues"      && <SlideVenues />}
           {slide === "scenography" && <SlideScenography />}
           {slide === "hosts"       && <SlideHosts />}
           {slide === "program"     && <SlideProgram />}
@@ -130,7 +129,7 @@ function SlideTitle() {
       <img src={IMG.tango} alt="" style={{ position:"absolute", left:"1%", bottom:"4%", width:"15%", opacity:0.08, filter:"sepia(15%)", pointerEvents:"none" }} />
 
       <div style={{ maxWidth:"56%", position:"relative" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Концепция мероприятия · 2025</p>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Концепция мероприятия · 2026</p>
 
         <h1 style={{ fontFamily:"'Cormorant', serif", fontWeight:300,
           fontSize:"clamp(1.6rem,4vw,3.4rem)", lineHeight:1.06, color:"#3d2b1a",
@@ -147,12 +146,6 @@ function SlideTitle() {
           marginBottom:"1.5em", letterSpacing:"0.04em", animation:"su 0.85s ease-out 0.32s both" }}>
           МЕЖДУ ТЫ И ОНА · ЛАБИРИНТЫ ЖЕНСКИХ МИРОВ
         </h2>
-
-        <div style={{ display:"flex", flexWrap:"wrap", gap:"1em 2.5em", animation:"su 0.9s ease-out 0.45s both" }}>
-          <InfoRow icon="📅" label="Дата" value="19–20 мая или 25–26 мая" />
-          <InfoRow icon="🏛️" label="Место" value="Филармония / Хаят" />
-          <InfoRow icon="📍" label="Адрес" value="Карла Либкнехта, 38А / Ельцина, 8" />
-        </div>
       </div>
     </div>
   );
@@ -163,7 +156,7 @@ function SlideConcept() {
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
       <div style={{ flex:"0 0 36%", position:"relative", overflow:"hidden" }}>
-        <img src={IMG.cello} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(18%) contrast(0.87) brightness(1.06)", opacity:0.85 }} />
+        <img src={IMG.meanings} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(18%) contrast(0.87) brightness(1.06)", opacity:0.85 }} />
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 60%, #f5efe6)" }} />
       </div>
       <div style={{ flex:1, padding:"5.5% 5.5% 5.5% 5%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
@@ -172,60 +165,14 @@ function SlideConcept() {
           Основная идея<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и философия события</span>
         </h2>
         <p style={{ ...BODY, maxWidth:"96%", marginTop:"0.8em", animation:"su 0.9s ease-out 0.2s both" }}>
-          Существует множество жанров, в каждом из них восхваляется женский образ: красота души и тела. Через музыку, кино, поэзию — вдохновимся классикой и внедрим женщин семьи и мужчин, которые скажут им приятные слова.
-        </p>
-        <div style={{ display:"flex", flexDirection:"column", gap:"0.7em", marginTop:"1.2em", animation:"su 1s ease-out 0.32s both" }}>
-          {[
-            { icon:"🎻", t:"Женщина — это инструмент", d:"Скрипка / гитара / клавиши" },
-            { icon:"💃", t:"Женщина — это танец",     d:"Танго / вальс" },
-            { icon:"🎵", t:"Женщина — это песня",     d:"Лиричная, весёлая, рок" },
-          ].map(item => (
-            <div key={item.t} style={{ display:"flex", gap:"0.7em", alignItems:"center" }}>
-              <span style={{ fontSize:"1em" }}>{item.icon}</span>
-              <span style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.75rem,1.25vw,1rem)", fontWeight:500, color:"#3d2b1a" }}>{item.t}</span>
-              <span style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.14em", color:"#a8926f", textTransform:"uppercase" }}>{item.d}</span>
-            </div>
-          ))}
-        </div>
-        <p style={{ ...BODY_ITALIC, marginTop:"1em", animation:"su 1s ease-out 0.48s both" }}>
-          Образы известных поэтов, уральских композиторов появятся на прозрачных экранах. После — мужчина из зала произносит речь для своих женщин.
+          Существует множество жанров, в каждом из них восхваляется женский образ: красота души и тела. Через музыку, кино, поэзию — вдохновимся классикой и внедрим женщин семьи и мужчин, которые скажут им приятные слова. Используя контент и жанры, мы описываем женщин в зале. Женщина — это инструмент (скрипка/гитара/клавиши), женщина это танец — танго/вальс, женщина это песня — лиричная, весёлая, рок. Образы известных поэтов, уральских композиторов появятся на прозрачных экранах/полотнах/голограммах. После известной личности появляется мужчина из зала (член семьи) и произносит речь для своих женщин, дарит подарок (по желанию). Так действие идёт по блокам.
         </p>
       </div>
     </div>
   );
 }
 
-/* ─── SLIDE 3: Площадки ─── */
-function SlideVenues() {
-  return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
-      <VenueCard img={IMG.hall}   name="Филармония"     address="ул. Карла Либкнехта, 38А" desc="Классический концертный зал с богатой акустикой. Идеально для живой музыки и театральных постановок." tags={["Классика","Акустика","Зрительный зал"]} />
-      <div style={{ width:"1px", background:"rgba(200,184,154,0.3)", flexShrink:0 }} />
-      <VenueCard img={IMG.dinner} name="Hyatt Regency" address="ул. Бориса Ельцина, 8"    desc="Роскошный зал для торжественных ужинов. Современные технические возможности и высокий уровень сервиса." tags={["Ужин","Технологии","Панорама"]} />
-    </div>
-  );
-}
-
-function VenueCard({ img, name, address, desc, tags }: { img:string; name:string; address:string; desc:string; tags:string[] }) {
-  return (
-    <div style={{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden" }}>
-      <div style={{ flex:"0 0 58%", position:"relative", overflow:"hidden" }}>
-        <img src={img} alt={name} style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(15%) contrast(0.87) brightness(1.06)" }} />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(0deg, #f5efe6 0%, transparent 50%)" }} />
-      </div>
-      <div style={{ flex:1, padding:"4% 7%", background:"rgba(250,248,244,0.97)" }}>
-        <p style={{ ...TAG, marginBottom:"0.4em", animation:"su 0.7s ease-out both" }}>{address}</p>
-        <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:300, fontSize:"clamp(1.1rem,2.5vw,1.8rem)", color:"#3d2b1a", marginBottom:"0.45em", lineHeight:1.1, animation:"su 0.8s ease-out 0.1s both" }}>{name}</h3>
-        <p style={{ ...BODY, fontSize:"clamp(0.65rem,1vw,0.83rem)", animation:"su 0.9s ease-out 0.2s both" }}>{desc}</p>
-        <div style={{ display:"flex", gap:"0.45em", marginTop:"0.7em", flexWrap:"wrap", animation:"su 0.9s ease-out 0.3s both" }}>
-          {tags.map(t => <span key={t} style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.48rem", letterSpacing:"0.16em", textTransform:"uppercase", color:"#a8926f", border:"1px solid #c8b89a", padding:"0.2em 0.6em" }}>{t}</span>)}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── SLIDE 4: Сценография ─── */
+/* ─── SLIDE 3: Сценография ─── */
 function SlideScenography() {
   return (
     <div style={{ width:"100%", height:"100%", padding:"4.5% 6%", boxSizing:"border-box", display:"flex", flexDirection:"column", justifyContent:"center" }}>
