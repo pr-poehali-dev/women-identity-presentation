@@ -11,6 +11,12 @@ const IMG = {
   cello:       "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/1b71f129-e0c3-4ee5-a63e-4674b3cd664d.jpg",
   tango:       "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/60128de9-3c6b-4cf4-874d-e6504fa8023b.jpg",
   meanings:    "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/70132ee2-4cc1-4e44-a9ee-811dab6958c1.jpg",
+  // Real images from document
+  projection:  "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/4055b1f7-3c64-4817-86ea-be92ec4b477b.jpg",
+  hologramReal:"https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2875af80-8308-452a-a55e-f4b4a53cdb65.jpg",
+  orchestra:   "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/b5334c36-0345-4fa1-b023-29ca45fe4ddd.jpg",
+  poetReal:    "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/f9c645aa-c9e6-44de-a163-7ce9caae26b7.jpg",
+  wallArt:     "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2c171346-080a-49d3-b11b-71f86a48b260.jpg",
 };
 
 const SLIDES = ["title","concept","scenography","hosts","program","dinner"] as const;
@@ -124,27 +130,26 @@ export default function Index() {
 /* ─── SLIDE 1: Обложка ─── */
 function SlideTitle() {
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", padding:"5% 8%", boxSizing:"border-box", position:"relative" }}>
-      <img src={IMG.cello} alt="" style={{ position:"absolute", right:"3%", top:"50%", transform:"translateY(-50%)", width:"40%", opacity:0.13, filter:"sepia(20%)", pointerEvents:"none" }} />
-      <img src={IMG.tango} alt="" style={{ position:"absolute", left:"1%", bottom:"4%", width:"15%", opacity:0.08, filter:"sepia(15%)", pointerEvents:"none" }} />
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", padding:"5% 8%", boxSizing:"border-box", position:"relative" }}>
+      {/* фоновые эскизы */}
+      <img src={IMG.cello} alt="" style={{ position:"absolute", right:"2%", top:"50%", transform:"translateY(-50%)", width:"42%", opacity:0.12, filter:"sepia(20%)", pointerEvents:"none" }} />
+      <img src={IMG.tango} alt="" style={{ position:"absolute", left:"1%", bottom:"3%", width:"14%", opacity:0.07, filter:"sepia(15%)", pointerEvents:"none" }} />
 
-      <div style={{ maxWidth:"56%", position:"relative" }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Концепция мероприятия · 2026</p>
-
-        <h1 style={{ fontFamily:"'Cormorant', serif", fontWeight:300,
-          fontSize:"clamp(1.6rem,4vw,3.4rem)", lineHeight:1.06, color:"#3d2b1a",
-          marginBottom:"0.5em", letterSpacing:"0.015em", animation:"su 0.85s ease-out 0.08s both" }}>
-          ВЕЧНОСТЬ<br/>
-          <span style={{ fontSize:"0.72em", color:"#6b5030" }}>ТВОРЦЫ ГОВОРЯТ</span><br/>
-          <span style={{ fontStyle:"italic", fontSize:"0.7em", color:"#7a5c3a" }}>О ЖЕНЩИНАХ</span>
+      <div style={{ textAlign:"center", position:"relative" }}>
+        <h1 style={{
+          fontFamily:"'Cormorant', serif", fontWeight:300,
+          fontSize:"clamp(2rem,5vw,4.4rem)", lineHeight:1.12, color:"#3d2b1a",
+          letterSpacing:"0.03em", animation:"su 0.9s ease-out both",
+        }}>
+          Между ты и она
         </h1>
-
-        <Divider delay="0.22s" />
-
-        <h2 style={{ fontFamily:"'Cormorant', serif", fontWeight:300,
-          fontSize:"clamp(0.85rem,1.8vw,1.45rem)", lineHeight:1.2, color:"#a8926f",
-          marginBottom:"1.5em", letterSpacing:"0.04em", animation:"su 0.85s ease-out 0.32s both" }}>
-          МЕЖДУ ТЫ И ОНА · ЛАБИРИНТЫ ЖЕНСКИХ МИРОВ
+        <Divider delay="0.3s" />
+        <h2 style={{
+          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:300,
+          fontSize:"clamp(1rem,2.4vw,2rem)", lineHeight:1.2, color:"#7a5c3a",
+          letterSpacing:"0.06em", animation:"su 0.9s ease-out 0.35s both",
+        }}>
+          Лабиринты женских миров
         </h2>
       </div>
     </div>
@@ -156,7 +161,7 @@ function SlideConcept() {
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
       <div style={{ flex:"0 0 36%", position:"relative", overflow:"hidden" }}>
-        <img src={IMG.meanings} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(18%) contrast(0.87) brightness(1.06)", opacity:0.85 }} />
+        <img src={IMG.cello} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(12%) contrast(0.88) brightness(1.06)", opacity:0.9 }} />
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 60%, #f5efe6)" }} />
       </div>
       <div style={{ flex:1, padding:"5.5% 5.5% 5.5% 5%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
@@ -181,9 +186,9 @@ function SlideScenography() {
         Технические решения<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и оформление</span>
       </h2>
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"1.8%", flex:1, maxHeight:"70%", animation:"su 0.9s ease-out 0.2s both" }}>
-        <SceneCard img={IMG.levitate} title="Левитирующий стол"              text="Арт-объект под потолком плавно опускается в нужный момент и становится праздничным столом для ужина." />
-        <SceneCard img={IMG.hologram} title="Прозрачные экраны и голограммы" text="Образы поэтов и уральских композиторов на прозрачных полотнах. Контент постоянно меняет пространство." />
-        <SceneCard img={IMG.poet}     title="Проекции на стены"               text="Атмосферный видеоарт заполняет зал. Смена контента создаёт непрерывно меняющуюся среду вокруг гостей." />
+        <SceneCard img={IMG.projection}  title="Прозрачные экраны"              text="Прозрачные экраны позволяют видеть сцену насквозь, создавая эффект голограммы прямо в зале." />
+        <SceneCard img={IMG.poetReal}    title="Образы поэтов и творцов"        text="Образы известных поэтов и уральских композиторов появляются на экранах — живые, объёмные, театральные." />
+        <SceneCard img={IMG.wallArt}     title="Проекции на стены"               text="Атмосферный видеоарт заполняет пространство зала, постоянно меняя его настроение и образ." />
       </div>
     </div>
   );
@@ -220,7 +225,7 @@ function SlideHosts() {
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
       <div style={{ flex:"0 0 30%", position:"relative", overflow:"hidden" }}>
-        <img src={IMG.speech} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(18%) contrast(0.87) brightness(1.06)" }} />
+        <img src={IMG.orchestra} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"brightness(0.88) contrast(0.95)" }} />
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 50%, #f5efe6)" }} />
       </div>
       <div style={{ flex:1, padding:"5% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
@@ -282,10 +287,10 @@ function SlideDinner() {
   return (
     <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
       <div style={{ flex:"0 0 45%", position:"relative", overflow:"hidden" }}>
-        <img src={IMG.tango} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"sepia(18%) contrast(0.87) brightness(1.05)" }} />
+        <img src={IMG.hologramReal} alt="" style={{ width:"100%", height:"100%", objectFit:"cover", filter:"brightness(0.9) contrast(0.92)" }} />
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, transparent 55%, #f5efe6)" }} />
         <div style={{ position:"absolute", bottom:"5%", right:"2%", width:"52%", border:"3px solid #faf8f4", overflow:"hidden", boxShadow:"0 4px 20px rgba(60,30,10,0.15)" }}>
-          <img src={IMG.dinner} alt="" style={{ width:"100%", display:"block", filter:"sepia(12%) contrast(0.88) brightness(1.07)" }} />
+          <img src={IMG.orchestra} alt="" style={{ width:"100%", display:"block", filter:"brightness(0.85) contrast(0.95)" }} />
         </div>
       </div>
       <div style={{ flex:1, padding:"5.5% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
