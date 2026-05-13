@@ -412,10 +412,9 @@ function SlideBlock2() {
 /* ─── SLIDE 9: Блок 3 — Женщина-танец + Оркестр ─── */
 function SlideBlock3() {
   const DANCE = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/80476c95-2ccb-4461-9f82-b9894670507b.jpg";
+  const SKETCH = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/e93f52e4-d876-424f-b637-f8baddbbde17.jpg";
   const instruments = [
     { name:"Скрипка", text:"Тонкая, трепетная, чувствующая всё — она первой отзывается на боль и радость." },
-    { name:"Духовые", text:"Страстные и порывистые — они говорят громко, когда слов уже недостаточно." },
-    { name:"Ударные", text:"Сердце ритма. В ней — сила, которая держит всё вместе, даже когда никто не замечает." },
     { name:"Рояль",   text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
   ];
   return (
@@ -425,9 +424,9 @@ function SlideBlock3() {
       <div style={{ flex:1, position:"relative", overflow:"hidden" }}>
         <img src={DANCE} alt="" style={{
           position:"absolute", inset:0, width:"100%", height:"100%",
-          objectFit:"cover", filter:"brightness(0.42) contrast(1.05) sepia(15%)",
+          objectFit:"cover", filter:"brightness(0.62) contrast(0.95) sepia(12%)",
         }} />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.9) 0%, rgba(10,4,2,0.45) 45%, transparent 100%)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.72) 0%, rgba(10,4,2,0.25) 50%, transparent 100%)" }} />
 
         {/* угловые линии — лево */}
         <div style={{ position:"absolute", top:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
@@ -467,11 +466,11 @@ function SlideBlock3() {
 
       {/* ── ПРАВАЯ ПОЛОВИНА — Оркестр ── */}
       <div style={{ flex:1, position:"relative", overflow:"hidden" }}>
-        <img src="https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/b327a86f-37ca-4ef2-a9f8-275e8dab9c77.jpg" alt="" style={{
+        <img src={SKETCH} alt="" style={{
           position:"absolute", inset:0, width:"100%", height:"100%",
-          objectFit:"cover", filter:"brightness(0.42) contrast(1.05) sepia(18%)",
+          objectFit:"cover", filter:"brightness(1.05) contrast(0.85) sepia(10%)",
         }} />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.92) 0%, rgba(10,4,2,0.5) 50%, transparent 100%)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(240,235,227,0.88) 0%, rgba(240,235,227,0.4) 50%, transparent 100%)" }} />
 
         {/* угловые линии — право */}
         <div style={{ position:"absolute", top:"6%", right:"8%", width:"2.4rem", height:"2.4rem",
@@ -485,26 +484,26 @@ function SlideBlock3() {
         }}>
           <h2 style={{
             fontFamily:"'Cormorant', serif", fontWeight:300,
-            fontSize:"clamp(1.2rem,2.4vw,2.2rem)", lineHeight:1.15, color:"#faf8f4",
+            fontSize:"clamp(1.2rem,2.4vw,2.2rem)", lineHeight:1.15, color:"#3d2b1a",
             letterSpacing:"0.03em", marginBottom:"0.5em",
             animation:"su 0.85s ease-out 0.15s both",
           }}>
             Женщина —<br/>оркестр
           </h2>
-          <div style={{ width:"2.5rem", height:"1px", background:"rgba(200,184,154,0.5)", marginBottom:"0.8em",
+          <div style={{ width:"2.5rem", height:"1px", background:"#c8b89a", marginBottom:"0.8em",
             animation:"su 0.85s ease-out 0.25s both" }} />
           <div style={{ display:"flex", flexDirection:"column", gap:"0.65em", animation:"su 0.9s ease-out 0.35s both" }}>
             {instruments.map((inst, i) => (
               <div key={i} style={{ display:"flex", gap:"0.6em", alignItems:"flex-start" }}>
                 <span style={{
                   fontFamily:"'Montserrat', sans-serif", fontSize:"0.38rem", letterSpacing:"0.14em",
-                  textTransform:"uppercase", color:"rgba(200,184,154,0.8)",
-                  border:"1px solid rgba(200,184,154,0.35)", padding:"0.15em 0.45em",
+                  textTransform:"uppercase", color:"#a8926f",
+                  border:"1px solid #c8b89a", padding:"0.15em 0.45em",
                   flexShrink:0, marginTop:"0.1em",
                 }}>{inst.name}</span>
                 <p style={{
                   fontFamily:"'Cormorant', serif", fontSize:"clamp(0.58rem,0.82vw,0.72rem)",
-                  lineHeight:1.62, color:"rgba(250,248,244,0.68)", margin:0,
+                  lineHeight:1.62, color:"#5a4030", margin:0,
                 }}>{inst.text}</p>
               </div>
             ))}
