@@ -377,13 +377,13 @@ function SlideHost() {
         <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Блок 1</p>
         <div style={{ display:"flex", flexDirection:"column", gap:"0.45em", animation:"su 0.9s ease-out 0.15s both" }}>
           <div>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Появление ведущего</h3>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Появление ведущего</h3>
             <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
               После трека и слов Игоря Алексеевича появляется ведущий. Он не выходит на сцену — он проходит сквозь зал, среди людей, среди столов и взглядов. Останавливается у каждой женщины, как будто видит её впервые — и говорит о ней словами поэтов: строчками, которые были написаны века назад, но звучат как сейчас, как здесь, как о ней.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.4)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Номер с лунами · Оркестр</h3>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Номер с лунами · Оркестр</h3>
             <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
               Луна — вечный спутник земли. Так и женщина — она всегда рядом, освещает путь, не требуя слов. На экране разворачивается большая луна, а в зале танцовщики работают со светящимися сферами разных размеров: в этой семье каждая — от самой младшей до старшей — светит по-своему. Действие нарастает, и в определённый момент на сцену выходит старший сын Александр — и продолжает перформанс своими словами. Возможен выход всех троих сыновей: три голоса, три луны, один свет.
             </p>
@@ -413,19 +413,19 @@ function SlideBlock2() {
         <div style={{ display:"flex", flexDirection:"column", gap:"0.45em", animation:"su 0.9s ease-out 0.2s both" }}>
           <div>
             <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Хаос как творчество</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
+            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
               Всё начинается с шума — стук по бокалу, шорох бумаги, звук обуви по паркету. Один инструмент подхватывает другой, голоса вступают сами, танец рождается стихийно. Нет порядка — есть вдохновение. Каждый живёт своей историей, но все вместе сливаются в единый творческий порыв. Стилистика — на стыке классики и современного рэпа.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Появление голограммы поэта</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Появление голограммы поэта</h3>
+            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
               Световая отбивка — и на прозрачном экране возникает силуэт. Поэт обращается к залу: цитирует себя, говорит о женщине языком своего времени. А в финале подводит мысль к сегодняшнему дню — туда, где о женщинах говорят уже иначе: в песнях, в рэпе, в ритме улицы. После этих слов — поздравление от Тимофея.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Номер — Гимнастка с люстрой</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Номер — Гимнастка с люстрой</h3>
+            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
               Воздушный номер — гимнастка работает с люстрой, соединяя красоту и высоту. После номера — поздравление от Давида.
             </p>
           </div>
@@ -470,7 +470,7 @@ function SlideBlock3() {
             textTransform:"uppercase", color:"rgba(200,184,154,0.65)", marginBottom:"0.7em",
             animation:"su 0.7s ease-out both" }}>Блок 3</p>
           <h2 style={{
-            fontFamily:"'Cormorant', serif", fontWeight:300,
+            fontFamily:"'Cormorant', serif", fontWeight:700,
             fontSize:"clamp(1.2rem,2.4vw,2.2rem)", lineHeight:1.15, color:"#faf8f4",
             letterSpacing:"0.03em", marginBottom:"0.5em",
             animation:"su 0.85s ease-out 0.1s both",
@@ -511,7 +511,7 @@ function SlideBlock3() {
           padding:"0 10%", display:"flex", flexDirection:"column",
         }}>
           <h2 style={{
-            fontFamily:"'Cormorant', serif", fontWeight:300,
+            fontFamily:"'Cormorant', serif", fontWeight:700,
             fontSize:"clamp(1.2rem,2.4vw,2.2rem)", lineHeight:1.15, color:"#3d2b1a",
             letterSpacing:"0.03em", marginBottom:"0.5em",
             animation:"su 0.85s ease-out 0.15s both",
