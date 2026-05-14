@@ -545,11 +545,35 @@ function SlideBlock3() {
 /* ─── SLIDE 10: Технические решения — Проекции ─── */
 function SlideProjections() {
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"flex-start", justifyContent:"flex-start", flexDirection:"column", padding:"5% 6%", boxSizing:"border-box" }}>
-      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
-      <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
-        Проекции<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>на стены</span>
-      </h2>
+    <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", padding:"5% 6% 4%", boxSizing:"border-box", gap:"3%" }}>
+      {/* Заголовок */}
+      <div>
+        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
+        <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
+          Проекции<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>на стены</span>
+        </h2>
+      </div>
+      {/* Две картинки */}
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2%", flex:1, minHeight:0, animation:"su 0.9s ease-out 0.2s both" }}>
+        <div style={{ overflow:"hidden", border:"1px solid #d4c4a8" }}>
+          <img
+            src="https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2ef07e3b-3a1b-4dbe-afd6-48c0a3b7c408.png"
+            alt="Проекции на стены зала"
+            style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", transition:"transform 0.5s ease" }}
+            onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
+            onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
+          />
+        </div>
+        <div style={{ overflow:"hidden", border:"1px solid #d4c4a8" }}>
+          <img
+            src="https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/123446e5-f831-42d5-8691-2ca90d2b7751.jpeg"
+            alt="Проекция на колоннах"
+            style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", transition:"transform 0.5s ease" }}
+            onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
+            onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
+          />
+        </div>
+      </div>
     </div>
   );
 }
