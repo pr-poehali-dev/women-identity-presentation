@@ -544,88 +544,24 @@ function SlideBlock3() {
 
 /* ─── SLIDE 10: Технические решения — Проекции ─── */
 function SlideProjections() {
-  const points = [
-    "Стены зала становятся живыми холстами: проекции эскизов, акварелей и набросков великих мастеров создают атмосферу живой мастерской.",
-    "Динамические переходы между образами синхронизированы с музыкой — пространство дышит вместе с оркестром.",
-    "Лица женщин семьи вписаны в полотна — их портреты «оживают» в проекциях по ходу вечера.",
-    "Технология full-projection позволяет трансформировать зал в считанные секунды: мастерская → галерея → ночное небо.",
-  ];
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"stretch" }}>
-      {/* Правая часть — фото */}
-      <div style={{ flex:"0 0 45%", position:"relative", overflow:"hidden" }}>
-        <img
-          src={IMG.projection}
-          alt="Проекции"
-          style={{ width:"100%", height:"100%", objectFit:"cover", filter:"brightness(1.02) contrast(0.88) saturate(0.85)" }}
-        />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg, #f5efe6 0%, transparent 18%)" }} />
-        {/* Угловые линии */}
-        <div style={{ position:"absolute", top:"6%", right:"6%", width:"2rem", height:"2rem", borderTop:"1px solid rgba(200,184,154,0.5)", borderRight:"1px solid rgba(200,184,154,0.5)" }} />
-        <div style={{ position:"absolute", bottom:"6%", right:"6%", width:"2rem", height:"2rem", borderBottom:"1px solid rgba(200,184,154,0.5)", borderRight:"1px solid rgba(200,184,154,0.5)" }} />
-      </div>
-      {/* Левая часть — текст */}
-      <div style={{ flex:1, padding:"5% 5.5% 5% 6%", display:"flex", flexDirection:"column", justifyContent:"center", order:-1 }}>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
-        <h2 style={{ ...H2, marginBottom:"0.4em", animation:"su 0.8s ease-out 0.1s both" }}>
-          Проекции<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>на стены</span>
-        </h2>
-        <div style={{ width:"2.5rem", height:"1px", background:"#c8b89a", marginBottom:"1.2em", animation:"su 0.85s ease-out 0.15s both" }} />
-        <div style={{ display:"flex", flexDirection:"column", gap:"0.7em", animation:"su 0.9s ease-out 0.2s both" }}>
-          {points.map((p, i) => (
-            <div key={i} style={{ display:"flex", gap:"0.75em", alignItems:"flex-start" }}>
-              <div style={{ width:"1.4rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.6em" }} />
-              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.62rem,0.88vw,0.78rem)", lineHeight:1.72, color:"#4a3520", margin:0 }}>{p}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column" }}>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
+      <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both", textAlign:"center" }}>
+        Проекции<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>на стены</span>
+      </h2>
     </div>
   );
 }
 
 /* ─── SLIDE 11: Голограммы и прозрачные экраны ─── */
 function SlideHolograms() {
-  const features = [
-    { title:"Поэты и композиторы", text:"Силуэты великих — Пушкин, Ахматова, Чайковский — появляются на прозрачных экранах, обращаются к залу и исчезают как видения." },
-    { title:"Объёмные образы", text:"Голографические проекции дают эффект присутствия: фигуры кажутся живыми, трёхмерными, вплетёнными в пространство зала." },
-    { title:"Синхронизация с оркестром", text:"Каждое появление голограммы — это музыкальная кульминация. Свет, звук и образ работают как единое целое." },
-  ];
   return (
-    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
-      {/* Фон */}
-      <img
-        src={IMG.hologramReal}
-        alt="Голограммы"
-        style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", filter:"brightness(0.48) contrast(1.05) saturate(0.9)" }}
-      />
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(8,4,16,0.82) 0%, rgba(20,10,30,0.6) 60%, rgba(8,4,16,0.4) 100%)" }} />
-
-      {/* Угловые линии */}
-      <div style={{ position:"absolute", top:"6%", left:"5%", width:"2.4rem", height:"2.4rem", borderTop:"1px solid rgba(180,160,220,0.35)", borderLeft:"1px solid rgba(180,160,220,0.35)" }} />
-      <div style={{ position:"absolute", top:"6%", right:"5%", width:"2.4rem", height:"2.4rem", borderTop:"1px solid rgba(180,160,220,0.35)", borderRight:"1px solid rgba(180,160,220,0.35)" }} />
-      <div style={{ position:"absolute", bottom:"6%", left:"5%", width:"2.4rem", height:"2.4rem", borderBottom:"1px solid rgba(180,160,220,0.35)", borderLeft:"1px solid rgba(180,160,220,0.35)" }} />
-      <div style={{ position:"absolute", bottom:"6%", right:"5%", width:"2.4rem", height:"2.4rem", borderBottom:"1px solid rgba(180,160,220,0.35)", borderRight:"1px solid rgba(180,160,220,0.35)" }} />
-
-      {/* Контент */}
-      <div style={{ position:"absolute", inset:0, display:"flex", flexDirection:"column", justifyContent:"center", padding:"5% 7%" }}>
-        <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.46rem", letterSpacing:"0.26em", textTransform:"uppercase", color:"rgba(180,160,220,0.7)", marginBottom:"0.7em", animation:"su 0.7s ease-out both" }}>Технические решения</p>
-        <h2 style={{ fontFamily:"'Cormorant', serif", fontWeight:300, fontSize:"clamp(1.4rem,2.8vw,2.4rem)", lineHeight:1.1, color:"#faf8f4", letterSpacing:"0.03em", marginBottom:"0.35em", animation:"su 0.85s ease-out 0.1s both" }}>
-          Голограммы<br/><span style={{ fontStyle:"italic", color:"rgba(200,180,240,0.85)" }}>и прозрачные экраны</span>
-        </h2>
-        <div style={{ width:"2.5rem", height:"1px", background:"rgba(180,160,220,0.5)", marginBottom:"1.4em", animation:"su 0.85s ease-out 0.2s both" }} />
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"2.5%", animation:"su 0.9s ease-out 0.3s both" }}>
-          {features.map((f, i) => (
-            <div key={i} style={{
-              borderLeft:"1px solid rgba(180,160,220,0.3)",
-              paddingLeft:"1.1em",
-            }}>
-              <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.72rem,1.15vw,0.92rem)", color:"rgba(220,205,255,0.9)", marginBottom:"0.45em", lineHeight:1.2 }}>{f.title}</h4>
-              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.88vw,0.76rem)", lineHeight:1.75, color:"rgba(250,248,244,0.68)", margin:0 }}>{f.text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column" }}>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
+      <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both", textAlign:"center" }}>
+        Голограммы<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и прозрачные экраны</span>
+      </h2>
     </div>
   );
 }
