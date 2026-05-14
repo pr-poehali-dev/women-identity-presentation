@@ -19,7 +19,7 @@ const IMG = {
   wallArt:     "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2c171346-080a-49d3-b11b-71f86a48b260.jpg",
 };
 
-const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","block3dance","block3orchestra","projections","holograms"] as const;
+const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","block3dance","block3orchestra","projections","holograms","artists1","artists2"] as const;
 
 const KF = `
   @keyframes su { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
@@ -93,7 +93,9 @@ export default function Index() {
           {slide === "block3dance"     && <SlideBlock3Dance />}
           {slide === "block3orchestra" && <SlideBlock3Orchestra />}
           {slide === "projections"     && <SlideProjections />}
-          {slide === "holograms"   && <SlideHolograms />}
+          {slide === "holograms"       && <SlideHolograms />}
+          {slide === "artists1"        && <SlideArtists1 />}
+          {slide === "artists2"        && <SlideArtists2 />}
         </div>
       </div>
 
@@ -570,6 +572,56 @@ function SlideHolograms() {
       <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
         Голограммы<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и прозрачные экраны</span>
       </h2>
+    </div>
+  );
+}
+
+/* ─── SLIDE 13: Артисты — часть 1 ─── */
+function ArtistCard({ name, note }: { name: string; note?: string }) {
+  return (
+    <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"0.6em" }}>
+      <div style={{
+        width:"100%", aspectRatio:"3/4", background:"linear-gradient(145deg, #e8e0d4, #d6ccc0)",
+        border:"1px solid #c8b89a", position:"relative", overflow:"hidden",
+        display:"flex", alignItems:"center", justifyContent:"center",
+      }}>
+        <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"0.5em", opacity:0.28 }}>
+          <div style={{ width:"2rem", height:"1px", background:"#a8926f" }} />
+          <div style={{ width:"1rem", height:"1px", background:"#a8926f" }} />
+          <div style={{ width:"1.5rem", height:"1px", background:"#a8926f" }} />
+        </div>
+      </div>
+      <div style={{ textAlign:"center" }}>
+        <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:600, fontSize:"clamp(0.7rem,1.1vw,0.92rem)", color:"#3d2b1a", margin:0, letterSpacing:"0.02em" }}>{name}</p>
+        {note && <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.18em", textTransform:"uppercase", color:"#a8926f", marginTop:"0.2em" }}>{note}</p>}
+      </div>
+    </div>
+  );
+}
+
+function SlideArtists1() {
+  return (
+    <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Артисты</p>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:"3%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both" }}>
+        <ArtistCard name="Akmal'" />
+        <ArtistCard name="Мачете" />
+        <ArtistCard name="Леонид Агутин" />
+        <ArtistCard name="Анжелика Варум" />
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 14: Артисты — часть 2 ─── */
+function SlideArtists2() {
+  return (
+    <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Артисты</p>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"5% 6%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", maxWidth:"60%", margin:"0 auto", alignSelf:"center", width:"100%" }}>
+        <ArtistCard name="Алексей Чумаков" />
+        <ArtistCard name="Sevak" />
+      </div>
     </div>
   );
 }
