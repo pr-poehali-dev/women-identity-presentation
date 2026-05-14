@@ -467,7 +467,7 @@ function SlideBlock3Dance() {
           fontSize:"clamp(0.95rem,1.6vw,1.4rem)", lineHeight:1.5, color:"rgba(250,248,244,0.88)",
           maxWidth:"60%", animation:"su 0.9s ease-out 0.3s both",
         }}>
-          Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз. Ведущий произносит подводку к поздравлению от мужей.
+          Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз.<br/>Ведущий произносит подводку к поздравлению от мужей.
         </p>
       </div>
     </div>
@@ -539,7 +539,7 @@ function SlideBlock3Orchestra() {
         animation:"su 0.9s ease-out 0.4s both",
       }}>
         <p style={{
-          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:700,
+          fontFamily:"'Cormorant', serif", fontStyle:"normal", fontWeight:400,
           fontSize:"clamp(0.95rem,1.4vw,1.2rem)", color:"#3d2b1a",
           letterSpacing:"0.03em", margin:0, textAlign:"center",
         }}>
