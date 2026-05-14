@@ -633,9 +633,10 @@ function SlideArtists2() {
   return (
     <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
       <h2 style={{ ...ARTISTS_TITLE, animation:"su 0.7s ease-out both" }}>Артисты</h2>
-      <div style={{ display:"flex", gap:"12%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyContent:"center" }}>
-        <div style={{ width:"28%" }}><ArtistCard name="Алексей Чумаков" /></div>
-        <div style={{ width:"28%" }}><ArtistCard name="Sevak" /></div>
+      <div style={{ display:"flex", gap:"8%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyContent:"center" }}>
+        <div style={{ width:"24%" }}><ArtistCard name="Алексей Чумаков" /></div>
+        <div style={{ width:"24%" }}><ArtistCard name="Sevak" /></div>
+        <div style={{ width:"24%" }}><ArtistCard name="Леонид (шансон)" /></div>
       </div>
     </div>
   );
