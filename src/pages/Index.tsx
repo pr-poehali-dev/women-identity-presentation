@@ -545,9 +545,9 @@ function SlideBlock3() {
 /* ─── SLIDE 10: Технические решения — Проекции ─── */
 function SlideProjections() {
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column" }}>
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"flex-start", justifyContent:"flex-start", flexDirection:"column", padding:"5% 6%", boxSizing:"border-box" }}>
       <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
-      <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both", textAlign:"center" }}>
+      <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
         Проекции<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>на стены</span>
       </h2>
     </div>
@@ -557,9 +557,9 @@ function SlideProjections() {
 /* ─── SLIDE 11: Голограммы и прозрачные экраны ─── */
 function SlideHolograms() {
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column" }}>
+    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"flex-start", justifyContent:"flex-start", flexDirection:"column", padding:"5% 6%", boxSizing:"border-box" }}>
       <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
-      <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both", textAlign:"center" }}>
+      <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
         Голограммы<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и прозрачные экраны</span>
       </h2>
     </div>
