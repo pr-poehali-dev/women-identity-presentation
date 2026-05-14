@@ -452,7 +452,7 @@ function SlideBlock3() {
       <div style={{ flex:1, position:"relative", overflow:"hidden" }}>
         <img src={DANCE} alt="" style={{
           position:"absolute", inset:0, width:"100%", height:"100%",
-          objectFit:"cover", filter:"brightness(0.62) contrast(0.95) sepia(12%)",
+          objectFit:"cover", filter:"brightness(0.78) contrast(0.95) sepia(12%)",
         }} />
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.72) 0%, rgba(10,4,2,0.25) 50%, transparent 100%)" }} />
 
