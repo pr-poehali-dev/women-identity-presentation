@@ -482,8 +482,14 @@ function SlideBlock3Orchestra() {
     { name:"Ударные",  text:"Сердце ритма. В ней — сила, которая держит всё вместе, даже когда никто не замечает." },
     { name:"Рояль",    text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
   ];
+  const SKETCH = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/e93f52e4-d876-424f-b637-f8baddbbde17.jpg";
   return (
-    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)" }}>
+    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
+      <img src={SKETCH} alt="" style={{
+        position:"absolute", inset:0, width:"100%", height:"100%",
+        objectFit:"cover", filter:"brightness(1.05) contrast(0.85) sepia(10%)",
+      }} />
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(240,235,227,0.92) 0%, rgba(240,235,227,0.5) 55%, transparent 100%)" }} />
 
       <div style={{ position:"absolute", top:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
         borderTop:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
@@ -547,35 +553,11 @@ function SlideBlock3Orchestra() {
 /* ─── SLIDE 10: Технические решения — Проекции ─── */
 function SlideProjections() {
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", padding:"5% 6% 4%", boxSizing:"border-box", gap:"3%" }}>
-      {/* Заголовок */}
-      <div>
-        <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
-        <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
-          Проекции<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>на стены</span>
-        </h2>
-      </div>
-      {/* Две картинки */}
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2%", flex:1, minHeight:0, animation:"su 0.9s ease-out 0.2s both" }}>
-        <div style={{ overflow:"hidden", border:"1px solid #d4c4a8" }}>
-          <img
-            src="https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2ef07e3b-3a1b-4dbe-afd6-48c0a3b7c408.png"
-            alt="Проекции на стены зала"
-            style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", transition:"transform 0.5s ease" }}
-            onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
-            onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
-          />
-        </div>
-        <div style={{ overflow:"hidden", border:"1px solid #d4c4a8" }}>
-          <img
-            src="https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/123446e5-f831-42d5-8691-2ca90d2b7751.jpeg"
-            alt="Проекция на колоннах"
-            style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", transition:"transform 0.5s ease" }}
-            onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
-            onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
-          />
-        </div>
-      </div>
+    <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", flexDirection:"column", padding:"5% 6% 4%", boxSizing:"border-box" }}>
+      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
+      <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
+        Проекции<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>на стены</span>
+      </h2>
     </div>
   );
 }
@@ -583,7 +565,7 @@ function SlideProjections() {
 /* ─── SLIDE 11: Голограммы и прозрачные экраны ─── */
 function SlideHolograms() {
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"flex-start", justifyContent:"flex-start", flexDirection:"column", padding:"5% 6%", boxSizing:"border-box" }}>
+    <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", alignItems:"flex-start", justifyContent:"flex-start", flexDirection:"column", padding:"5% 6%", boxSizing:"border-box" }}>
       <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Технические решения</p>
       <h2 style={{ ...H2, animation:"su 0.8s ease-out 0.1s both" }}>
         Голограммы<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>и прозрачные экраны</span>
