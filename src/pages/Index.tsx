@@ -56,7 +56,7 @@ export default function Index() {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      fontFamily: "'Cormorant', serif",
+      fontFamily: "'Raleway', sans-serif",
       padding: "1.8vh 1.8vw",
       boxSizing: "border-box",
     }}>
@@ -138,7 +138,7 @@ function SlideTitle() {
 
       <div style={{ textAlign:"center", position:"relative" }}>
         <h1 style={{
-          fontFamily:"'Cormorant', serif", fontWeight:300,
+          fontFamily:"'Raleway', sans-serif", fontWeight:300,
           fontSize:"clamp(2rem,5vw,4.4rem)", lineHeight:1.12, color:"#3d2b1a",
           letterSpacing:"0.03em", animation:"su 0.9s ease-out both",
         }}>
@@ -146,7 +146,7 @@ function SlideTitle() {
         </h1>
         <Divider delay="0.3s" />
         <h2 style={{
-          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:300,
+          fontFamily:"'Raleway', sans-serif", fontStyle:"italic", fontWeight:300,
           fontSize:"clamp(1rem,2.4vw,2rem)", lineHeight:1.2, color:"#7a5c3a",
           letterSpacing:"0.06em", animation:"su 0.9s ease-out 0.35s both",
         }}>
@@ -212,8 +212,8 @@ function SlideScenography() {
               />
             </div>
             <div style={{ padding:"4% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-              <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.9rem,1.35vw,1.15rem)", color:"#3d2b1a", marginBottom:"0.25em", lineHeight:1.15 }}>{item.title}</h4>
-              <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>{item.text}</p>
+              <h4 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.9rem,1.35vw,1.15rem)", color:"#3d2b1a", marginBottom:"0.25em", lineHeight:1.15 }}>{item.title}</h4>
+              <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>{item.text}</p>
             </div>
           </div>
         ))}
@@ -231,8 +231,8 @@ function SceneCard({ img, title, text }: { img:string; title:string; text:string
           onMouseLeave={e=>(e.currentTarget.style.transform="scale(1)")} />
       </div>
       <div style={{ flex:1, padding:"5% 6%" }}>
-        <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:400, fontSize:"clamp(0.72rem,1.2vw,0.92rem)", color:"#3d2b1a", marginBottom:"0.4em", lineHeight:1.2 }}>{title}</h4>
-        <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.88vw,0.75rem)", lineHeight:1.68, color:"#6b5030" }}>{text}</p>
+        <h4 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.72rem,1.2vw,0.92rem)", color:"#3d2b1a", marginBottom:"0.4em", lineHeight:1.2 }}>{title}</h4>
+        <p style={{ fontFamily:"'Raleway', sans-serif", fontSize:"clamp(0.6rem,0.88vw,0.75rem)", lineHeight:1.68, color:"#6b5030" }}>{text}</p>
       </div>
     </div>
   );
@@ -261,8 +261,8 @@ function SlideHosts() {
           <div key={i} style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
             <div style={{ flex:"0 0 40%", background:"linear-gradient(135deg, #ede4d8 0%, #e8ddd0 100%)" }} />
             <div style={{ flex:1, padding:"5% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-              <h4 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.9rem,1.35vw,1.15rem)", color:"#3d2b1a", marginBottom:"0.25em", lineHeight:1.15 }}>{item.title}</h4>
-              {item.text && <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>{item.text}</p>}
+              <h4 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.9rem,1.35vw,1.15rem)", color:"#3d2b1a", marginBottom:"0.25em", lineHeight:1.15 }}>{item.title}</h4>
+              {item.text && <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>{item.text}</p>}
             </div>
           </div>
         ))}
@@ -302,7 +302,7 @@ function SlideProgram() {
       <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", padding:"5% 7%" }}>
         <div style={{ maxWidth:"52%" }}>
           <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.46rem", letterSpacing:"0.26em", textTransform:"uppercase", color:"#a8926f", marginBottom:"0.7em", animation:"su 0.7s ease-out both" }}>Ход вечера</p>
-          <h2 style={{ fontFamily:"'Cormorant', serif", fontWeight:300, fontSize:"clamp(1.4rem,2.8vw,2.4rem)", lineHeight:1.12, color:"#3d2b1a", letterSpacing:"0.03em", marginBottom:"0.5em", animation:"su 0.85s ease-out 0.1s both" }}>
+          <h2 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:300, fontSize:"clamp(1.4rem,2.8vw,2.4rem)", lineHeight:1.12, color:"#3d2b1a", letterSpacing:"0.03em", marginBottom:"0.5em", animation:"su 0.85s ease-out 0.1s both" }}>
             Сбор гостей
           </h2>
           <div style={{ width:"2.5rem", height:"1px", background:"#c8b89a", marginBottom:"1em", animation:"su 0.85s ease-out 0.2s both" }} />
@@ -310,7 +310,7 @@ function SlideProgram() {
             {points.map((p, i) => (
               <div key={i} style={{ display:"flex", gap:"0.7em", alignItems:"flex-start" }}>
                 <div style={{ width:"1.2rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.6em" }} />
-                <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>{p}</p>
+                <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>{p}</p>
               </div>
             ))}
           </div>
@@ -343,7 +343,7 @@ function SlideIntro() {
           {points.map((p, i) => (
             <div key={i} style={{ display:"flex", gap:"0.75em", alignItems:"flex-start" }}>
               <div style={{ width:"1.4rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.65em" }} />
-              <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>{p}</p>
+              <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>{p}</p>
             </div>
           ))}
         </div>
@@ -367,14 +367,14 @@ function SlideHost() {
         <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Блок 1</p>
         <div style={{ display:"flex", flexDirection:"column", gap:"0.45em", animation:"su 0.9s ease-out 0.15s both" }}>
           <div>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Появление ведущего</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Появление ведущего</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
               После трека и слов Игоря Алексеевича появляется ведущий. Он не выходит на сцену — он проходит сквозь зал, среди людей, среди столов и взглядов. Останавливается у каждой женщины, как будто видит её впервые — и говорит о ней словами поэтов: строчками, которые были написаны века назад, но звучат как сейчас, как здесь, как о ней.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.4)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Номер с лунами · Оркестр</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Номер с лунами · Оркестр</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
               Луна — вечный спутник земли. Так и женщина — она всегда рядом, освещает путь, не требуя слов. На экране разворачивается большая луна, а в зале танцовщики работают со светящимися сферами разных размеров: в этой семье каждая — от самой младшей до старшей — светит по-своему. Действие нарастает, и в определённый момент на сцену выходит старший сын Александр — и продолжает перформанс своими словами. Возможен выход всех троих сыновей: три голоса, три луны, один свет.
             </p>
           </div>
@@ -402,20 +402,20 @@ function SlideBlock2() {
         </h2>
         <div style={{ display:"flex", flexDirection:"column", gap:"0.45em", animation:"su 0.9s ease-out 0.2s both" }}>
           <div>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Хаос как творчество</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Хаос как творчество</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
               Всё начинается с шума — стук по бокалу, шорох бумаги, звук обуви по паркету. Один инструмент подхватывает другой, голоса вступают сами, танец рождается стихийно. Нет порядка — есть вдохновение. Каждый живёт своей историей, но все вместе сливаются в единый творческий порыв. Стилистика — на стыке классики и современного рэпа.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Появление голограммы поэта</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Появление голограммы поэта</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
               Световая отбивка — и на прозрачном экране возникает силуэт. Поэт обращается к залу: цитирует себя, говорит о женщине языком своего времени. А в финале подводит мысль к сегодняшнему дню — туда, где о женщинах говорят уже иначе: в песнях, в рэпе, в ритме улицы. После этих слов — поздравление от Тимофея.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Cormorant', serif", fontWeight:700, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Номер — Гимнастка с люстрой</h3>
-            <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Номер — Гимнастка с люстрой</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
               Воздушный номер — гимнастка работает с люстрой, соединяя красоту и высоту. После номера — поздравление от Давида.
             </p>
           </div>
@@ -453,17 +453,17 @@ function SlideBlock3Dance() {
           textTransform:"uppercase", color:"rgba(200,184,154,0.65)", marginBottom:"0.8em",
           animation:"su 0.7s ease-out both" }}>Блок 3</p>
         <h2 style={{
-          fontFamily:"'Cormorant', serif", fontWeight:700,
+          fontFamily:"'Raleway', sans-serif", fontWeight:700,
           fontSize:"clamp(1.8rem,4vw,3.6rem)", lineHeight:1.1, color:"#faf8f4",
           letterSpacing:"0.03em", marginBottom:"0.55em",
           animation:"su 0.85s ease-out 0.1s both",
         }}>
-          Женщина-танец
+          Женщина — танец
         </h2>
         <div style={{ width:"3rem", height:"1px", background:"rgba(200,184,154,0.5)", marginBottom:"0.8em",
           animation:"su 0.85s ease-out 0.2s both" }} />
         <p style={{
-          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:500,
+          fontFamily:"'Raleway', sans-serif", fontStyle:"italic", fontWeight:500,
           fontSize:"clamp(0.95rem,1.6vw,1.4rem)", lineHeight:1.5, color:"rgba(250,248,244,0.88)",
           maxWidth:"60%", animation:"su 0.9s ease-out 0.3s both",
         }}>
@@ -505,7 +505,7 @@ function SlideBlock3Orchestra() {
         padding:"0 10%", display:"flex", flexDirection:"column",
       }}>
         <h2 style={{
-          fontFamily:"'Cormorant', serif", fontWeight:700,
+          fontFamily:"'Raleway', sans-serif", fontWeight:700,
           fontSize:"clamp(1.8rem,4vw,3.6rem)", lineHeight:1.1, color:"#3d2b1a",
           letterSpacing:"0.03em", marginBottom:"0.55em",
           animation:"su 0.85s ease-out 0.1s both",
@@ -524,7 +524,7 @@ function SlideBlock3Orchestra() {
                 flexShrink:0, marginTop:"0.25em",
               }}>{inst.name}</span>
               <p style={{
-                fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.88rem,1.3vw,1.15rem)",
+                fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.88rem,1.3vw,1.15rem)",
                 lineHeight:1.35, color:"#3a2810", margin:0,
               }}>{inst.text}</p>
             </div>
@@ -539,7 +539,7 @@ function SlideBlock3Orchestra() {
         animation:"su 0.9s ease-out 0.4s both",
       }}>
         <p style={{
-          fontFamily:"'Cormorant', serif", fontStyle:"normal", fontWeight:400,
+          fontFamily:"'Raleway', sans-serif", fontStyle:"normal", fontWeight:400,
           fontSize:"clamp(0.95rem,1.4vw,1.2rem)", color:"#3d2b1a",
           letterSpacing:"0.03em", margin:0, textAlign:"center",
         }}>
@@ -623,7 +623,7 @@ function InfoRow({ icon, label, value }: { icon:string; label:string; value:stri
   return (
     <div>
       <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.18em", textTransform:"uppercase", color:"#a8926f", marginBottom:"0.18em" }}>{icon} {label}</p>
-      <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.72rem,1.2vw,0.95rem)", color:"#3d2b1a", lineHeight:1.3 }}>{value}</p>
+      <p style={{ fontFamily:"'Raleway', sans-serif", fontSize:"clamp(0.72rem,1.2vw,0.95rem)", color:"#3d2b1a", lineHeight:1.3 }}>{value}</p>
     </div>
   );
 }
@@ -634,11 +634,11 @@ const TAG: React.CSSProperties = {
   letterSpacing:"0.28em", color:"#a8926f", textTransform:"uppercase", marginBottom:"1.1em",
 };
 const H2: React.CSSProperties = {
-  fontFamily:"'Cormorant', serif", fontWeight:400,
+  fontFamily:"'Raleway', sans-serif", fontWeight:400,
   fontSize:"clamp(1.6rem,3.4vw,3rem)", lineHeight:1.15, color:"#3d2b1a",
 };
 const BODY: React.CSSProperties = {
-  fontFamily:"'Cormorant', serif", fontWeight:400,
+  fontFamily:"'Raleway', sans-serif", fontWeight:400,
   fontSize:"clamp(0.95rem,1.45vw,1.25rem)", lineHeight:1.55, color:"#5c4530",
 };
 const BODY_ITALIC: React.CSSProperties = {
