@@ -631,7 +631,7 @@ const H2: React.CSSProperties = {
 };
 const BODY: React.CSSProperties = {
   fontFamily:"'Cormorant', serif", fontWeight:400,
-  fontSize:"clamp(0.95rem,1.45vw,1.25rem)", lineHeight:1.75, color:"#5c4530",
+  fontSize:"clamp(0.95rem,1.45vw,1.25rem)", lineHeight:1.55, color:"#5c4530",
 };
 const BODY_ITALIC: React.CSSProperties = {
   ...BODY, fontStyle:"italic", fontWeight:300, color:"#8b6e4e",
