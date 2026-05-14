@@ -534,13 +534,13 @@ function SlideBlock3Orchestra() {
 
       {/* Подпись внизу по центру */}
       <div style={{
-        position:"absolute", bottom:"5%", left:0, right:0,
+        position:"absolute", bottom:"10%", left:0, right:0,
         display:"flex", justifyContent:"center", alignItems:"center",
         animation:"su 0.9s ease-out 0.4s both",
       }}>
         <p style={{
-          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:500,
-          fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#6b5030",
+          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:700,
+          fontSize:"clamp(0.95rem,1.4vw,1.2rem)", color:"#3d2b1a",
           letterSpacing:"0.03em", margin:0, textAlign:"center",
         }}>
           После финальной композиции оркестра — поздравление от друзей
