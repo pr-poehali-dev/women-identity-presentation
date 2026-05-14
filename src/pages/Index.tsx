@@ -603,11 +603,11 @@ function SlideArtists1() {
   return (
     <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
       <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Артисты</p>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:"3%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"flex-end" }}>
+      {/* 3 колонки: Akmal', Мачете, Агутин+Варум */}
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"4%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyItems:"center" }}>
         <ArtistCard name="Akmal'" />
         <ArtistCard name="Мачете" />
-        <ArtistCard name="Леонид Агутин" />
-        <ArtistCard name="Анжелика Варум" />
+        <ArtistCard name="Леонид Агутин & Анжелика Варум" />
       </div>
     </div>
   );
@@ -618,9 +618,9 @@ function SlideArtists2() {
   return (
     <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
       <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Артисты</p>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"5% 6%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", maxWidth:"60%", margin:"0 auto", alignSelf:"center", width:"100%", alignItems:"flex-end" }}>
-        <ArtistCard name="Алексей Чумаков" />
-        <ArtistCard name="Sevak" />
+      <div style={{ display:"flex", gap:"12%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyContent:"center" }}>
+        <div style={{ width:"28%" }}><ArtistCard name="Алексей Чумаков" /></div>
+        <div style={{ width:"28%" }}><ArtistCard name="Sevak" /></div>
       </div>
     </div>
   );
