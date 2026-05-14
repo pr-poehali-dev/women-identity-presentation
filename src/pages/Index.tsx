@@ -316,11 +316,11 @@ function SlideProgram() {
             Сбор гостей
           </h2>
           <div style={{ width:"2.5rem", height:"1px", background:"#c8b89a", marginBottom:"1em", animation:"su 0.85s ease-out 0.2s both" }} />
-          <div style={{ display:"flex", flexDirection:"column", gap:"0.55em", animation:"su 0.9s ease-out 0.3s both" }}>
+          <div style={{ display:"flex", flexDirection:"column", gap:"0.35em", animation:"su 0.9s ease-out 0.3s both" }}>
             {points.map((p, i) => (
               <div key={i} style={{ display:"flex", gap:"0.7em", alignItems:"flex-start" }}>
                 <div style={{ width:"1.2rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.6em" }} />
-                <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.6rem,0.86vw,0.76rem)", lineHeight:1.68, color:"#4a3520", margin:0 }}>{p}</p>
+                <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>{p}</p>
               </div>
             ))}
           </div>
@@ -349,11 +349,11 @@ function SlideIntro() {
         <h2 style={{ ...H2, marginBottom:"3%", animation:"su 0.8s ease-out 0.1s both" }}>
           Интро<br/><span style={{ fontStyle:"italic", color:"#7a5c3a" }}>открытие вечера</span>
         </h2>
-        <div style={{ display:"flex", flexDirection:"column", gap:"1em", animation:"su 0.9s ease-out 0.2s both" }}>
+        <div style={{ display:"flex", flexDirection:"column", gap:"0.45em", animation:"su 0.9s ease-out 0.2s both" }}>
           {points.map((p, i) => (
             <div key={i} style={{ display:"flex", gap:"0.75em", alignItems:"flex-start" }}>
               <div style={{ width:"1.4rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.65em" }} />
-              <p style={{ fontFamily:"'Cormorant', serif", fontSize:"clamp(0.64rem,0.9vw,0.8rem)", lineHeight:1.7, color:"#4a3520", margin:0 }}>{p}</p>
+              <p style={{ fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>{p}</p>
             </div>
           ))}
         </div>
