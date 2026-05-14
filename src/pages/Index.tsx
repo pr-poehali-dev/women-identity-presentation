@@ -432,9 +432,9 @@ function SlideBlock3Dance() {
     <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
       <img src={DANCE} alt="" style={{
         position:"absolute", inset:0, width:"100%", height:"100%",
-        objectFit:"cover", filter:"brightness(0.78) contrast(0.95) sepia(12%)",
+        objectFit:"cover", filter:"brightness(1.1) contrast(0.9) sepia(8%)",
       }} />
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.78) 0%, rgba(10,4,2,0.3) 50%, transparent 100%)" }} />
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.65) 0%, rgba(10,4,2,0.18) 50%, transparent 100%)" }} />
 
       <div style={{ position:"absolute", top:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
         borderTop:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
@@ -481,7 +481,7 @@ function SlideBlock3Orchestra() {
     { name:"Скрипка",  text:"Тонкая, трепетная, чувствующая всё — она первой отзывается на боль и радость." },
     { name:"Духовые",  text:"Страстные и порывистые — они говорят громко, когда слов уже недостаточно." },
     { name:"Ударные",  text:"Сердце ритма. В ней — сила, которая держит всё вместе, даже когда никто не замечает." },
-    { name:"Рояль",    text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после. После финальной композиции оркестра — поздравление от друзей." },
+    { name:"Рояль",    text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
   ];
   return (
     <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
@@ -501,7 +501,7 @@ function SlideBlock3Orchestra() {
         borderBottom:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
 
       <div style={{
-        position:"absolute", bottom:"10%", left:0, right:0,
+        position:"absolute", bottom:"16%", left:0, right:0,
         padding:"0 10%", display:"flex", flexDirection:"column",
       }}>
         <h2 style={{
@@ -530,6 +530,21 @@ function SlideBlock3Orchestra() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Подпись внизу по центру */}
+      <div style={{
+        position:"absolute", bottom:"5%", left:0, right:0,
+        display:"flex", justifyContent:"center", alignItems:"center",
+        animation:"su 0.9s ease-out 0.4s both",
+      }}>
+        <p style={{
+          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:500,
+          fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#6b5030",
+          letterSpacing:"0.03em", margin:0, textAlign:"center",
+        }}>
+          После финальной композиции оркестра — поздравление от друзей
+        </p>
       </div>
     </div>
   );
