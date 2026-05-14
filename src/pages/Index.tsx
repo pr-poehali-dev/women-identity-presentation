@@ -599,15 +599,30 @@ function ArtistCard({ name, note }: { name: string; note?: string }) {
   );
 }
 
+const ARTISTS_TITLE: React.CSSProperties = {
+  fontFamily:"'Raleway', sans-serif", fontWeight:700,
+  fontSize:"clamp(1.4rem,2.8vw,2.4rem)", color:"#3d2b1a",
+  letterSpacing:"0.04em", marginBottom:"4%",
+};
+
 function SlideArtists1() {
   return (
     <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
-      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Артисты</p>
-      {/* 3 колонки: Akmal', Мачете, Агутин+Варум */}
+      <h2 style={{ ...ARTISTS_TITLE, animation:"su 0.7s ease-out both" }}>Артисты</h2>
+      {/* 3 колонки одинакового размера */}
       <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"4%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyItems:"center" }}>
-        <ArtistCard name="Akmal'" />
-        <ArtistCard name="Мачете" />
-        <ArtistCard name="Леонид Агутин & Анжелика Варум" />
+        {["Akmal'", "Мачете", "Леонид Агутин & Анжелика Варум"].map(name => (
+          <div key={name} style={{ width:"100%", display:"flex", flexDirection:"column", alignItems:"center", gap:"0.6em" }}>
+            <div style={{ width:"100%", aspectRatio:"3/4", background:"linear-gradient(145deg, #e8e0d4, #d6ccc0)", border:"1px solid #c8b89a", display:"flex", alignItems:"center", justifyContent:"center" }}>
+              <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"0.5em", opacity:0.28 }}>
+                <div style={{ width:"2rem", height:"1px", background:"#a8926f" }} />
+                <div style={{ width:"1rem", height:"1px", background:"#a8926f" }} />
+                <div style={{ width:"1.5rem", height:"1px", background:"#a8926f" }} />
+              </div>
+            </div>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:600, fontSize:"clamp(0.7rem,1.1vw,0.92rem)", color:"#3d2b1a", margin:0, textAlign:"center", letterSpacing:"0.02em" }}>{name}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -617,7 +632,7 @@ function SlideArtists1() {
 function SlideArtists2() {
   return (
     <div style={{ width:"100%", height:"100%", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)", display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
-      <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Артисты</p>
+      <h2 style={{ ...ARTISTS_TITLE, animation:"su 0.7s ease-out both" }}>Артисты</h2>
       <div style={{ display:"flex", gap:"12%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyContent:"center" }}>
         <div style={{ width:"28%" }}><ArtistCard name="Алексей Чумаков" /></div>
         <div style={{ width:"28%" }}><ArtistCard name="Sevak" /></div>
