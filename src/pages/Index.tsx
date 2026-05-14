@@ -212,8 +212,8 @@ function SlideScenography() {
               />
             </div>
             <div style={{ padding:"4% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-              <h4 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.9rem,1.35vw,1.15rem)", color:"#3d2b1a", marginBottom:"0.25em", lineHeight:1.15 }}>{item.title}</h4>
-              <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>{item.text}</p>
+              <h4 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:600, fontSize:"clamp(0.72rem,1.05vw,0.9rem)", color:"#3d2b1a", marginBottom:"0.2em", lineHeight:1.2 }}>{item.title}</h4>
+              <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.65rem,0.92vw,0.8rem)", lineHeight:1.45, color:"#5c4530", margin:0 }}>{item.text}</p>
             </div>
           </div>
         ))}
@@ -261,8 +261,8 @@ function SlideHosts() {
           <div key={i} style={{ display:"flex", flexDirection:"column", border:"1px solid #d4c4a8", background:"rgba(250,248,244,0.7)", overflow:"hidden" }}>
             <div style={{ flex:"0 0 40%", background:"linear-gradient(135deg, #ede4d8 0%, #e8ddd0 100%)" }} />
             <div style={{ flex:1, padding:"5% 6%", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-              <h4 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.9rem,1.35vw,1.15rem)", color:"#3d2b1a", marginBottom:"0.25em", lineHeight:1.15 }}>{item.title}</h4>
-              {item.text && <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>{item.text}</p>}
+              <h4 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:600, fontSize:"clamp(0.72rem,1.05vw,0.9rem)", color:"#3d2b1a", marginBottom:"0.2em", lineHeight:1.2 }}>{item.title}</h4>
+              {item.text && <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.65rem,0.92vw,0.8rem)", lineHeight:1.45, color:"#5c4530", margin:0 }}>{item.text}</p>}
             </div>
           </div>
         ))}
@@ -310,7 +310,7 @@ function SlideProgram() {
             {points.map((p, i) => (
               <div key={i} style={{ display:"flex", gap:"0.7em", alignItems:"flex-start" }}>
                 <div style={{ width:"1.2rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.6em" }} />
-                <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>{p}</p>
+                <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.65rem,0.92vw,0.8rem)", lineHeight:1.45, color:"#5c4530", margin:0 }}>{p}</p>
               </div>
             ))}
           </div>
@@ -367,14 +367,14 @@ function SlideHost() {
         <p style={{ ...TAG, animation:"su 0.7s ease-out both" }}>Блок 1</p>
         <div style={{ display:"flex", flexDirection:"column", gap:"0.45em", animation:"su 0.9s ease-out 0.15s both" }}>
           <div>
-            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Появление ведущего</h3>
-            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:600, fontSize:"clamp(0.72rem,1.05vw,0.9rem)", color:"#3d2b1a", marginBottom:"0.2em", letterSpacing:"0.02em" }}>Появление ведущего</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.65rem,0.92vw,0.8rem)", lineHeight:1.45, color:"#5c4530", margin:0 }}>
               После трека и слов Игоря Алексеевича появляется ведущий. Он не выходит на сцену — он проходит сквозь зал, среди людей, среди столов и взглядов. Останавливается у каждой женщины, как будто видит её впервые — и говорит о ней словами поэтов: строчками, которые были написаны века назад, но звучат как сейчас, как здесь, как о ней.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.4)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.82rem,1.3vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.02em" }}>Номер с лунами · Оркестр</h3>
-            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:600, fontSize:"clamp(0.72rem,1.05vw,0.9rem)", color:"#3d2b1a", marginBottom:"0.2em", letterSpacing:"0.02em" }}>Номер с лунами · Оркестр</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.65rem,0.92vw,0.8rem)", lineHeight:1.45, color:"#5c4530", margin:0 }}>
               Луна — вечный спутник земли. Так и женщина — она всегда рядом, освещает путь, не требуя слов. На экране разворачивается большая луна, а в зале танцовщики работают со светящимися сферами разных размеров: в этой семье каждая — от самой младшей до старшей — светит по-своему. Действие нарастает, и в определённый момент на сцену выходит старший сын Александр — и продолжает перформанс своими словами. Возможен выход всех троих сыновей: три голоса, три луны, один свет.
             </p>
           </div>
@@ -402,20 +402,20 @@ function SlideBlock2() {
         </h2>
         <div style={{ display:"flex", flexDirection:"column", gap:"0.45em", animation:"su 0.9s ease-out 0.2s both" }}>
           <div>
-            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Хаос как творчество</h3>
-            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:600, fontSize:"clamp(0.65rem,0.95vw,0.82rem)", color:"#3d2b1a", marginBottom:"0.2em", letterSpacing:"0.01em" }}>Хаос как творчество</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.4, color:"#5c4530", margin:0 }}>
               Всё начинается с шума — стук по бокалу, шорох бумаги, звук обуви по паркету. Один инструмент подхватывает другой, голоса вступают сами, танец рождается стихийно. Нет порядка — есть вдохновение. Каждый живёт своей историей, но все вместе сливаются в единый творческий порыв. Стилистика — на стыке классики и современного рэпа.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Появление голограммы поэта</h3>
-            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.65rem,0.95vw,0.82rem)", color:"#3d2b1a", marginBottom:"0.2em", letterSpacing:"0.01em" }}>Появление голограммы поэта</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.4, color:"#5c4530", margin:0 }}>
               Световая отбивка — и на прозрачном экране возникает силуэт. Поэт обращается к залу: цитирует себя, говорит о женщине языком своего времени. А в финале подводит мысль к сегодняшнему дню — туда, где о женщинах говорят уже иначе: в песнях, в рэпе, в ритме улицы. После этих слов — поздравление от Тимофея.
             </p>
           </div>
           <div style={{ borderTop:"1px solid rgba(200,184,154,0.35)", paddingTop:"0.6em" }}>
-            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.82rem,1.2vw,1.05rem)", color:"#3d2b1a", marginBottom:"0.3em", letterSpacing:"0.01em" }}>Номер — Гимнастка с люстрой</h3>
-            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.35, color:"#3a2810", margin:0 }}>
+            <h3 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(0.65rem,0.95vw,0.82rem)", color:"#3d2b1a", marginBottom:"0.2em", letterSpacing:"0.01em" }}>Номер — Гимнастка с люстрой</h3>
+            <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.6rem,0.85vw,0.75rem)", lineHeight:1.4, color:"#5c4530", margin:0 }}>
               Воздушный номер — гимнастка работает с люстрой, соединяя красоту и высоту. После номера — поздравление от Давида.
             </p>
           </div>
@@ -476,7 +476,6 @@ function SlideBlock3Dance() {
 
 /* ─── SLIDE 10: Блок 3 — Женщина-оркестр ─── */
 function SlideBlock3Orchestra() {
-  const SKETCH = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/e93f52e4-d876-424f-b637-f8baddbbde17.jpg";
   const instruments = [
     { name:"Скрипка",  text:"Тонкая, трепетная, чувствующая всё — она первой отзывается на боль и радость." },
     { name:"Духовые",  text:"Страстные и порывистые — они говорят громко, когда слов уже недостаточно." },
@@ -484,12 +483,7 @@ function SlideBlock3Orchestra() {
     { name:"Рояль",    text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после." },
   ];
   return (
-    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
-      <img src={SKETCH} alt="" style={{
-        position:"absolute", inset:0, width:"100%", height:"100%",
-        objectFit:"cover", filter:"brightness(1.05) contrast(0.85) sepia(10%)",
-      }} />
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(240,235,227,0.92) 0%, rgba(240,235,227,0.5) 55%, transparent 100%)" }} />
+    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden", background:"linear-gradient(150deg, #faf8f4 0%, #f5efe6 55%, #ede6d8 100%)" }}>
 
       <div style={{ position:"absolute", top:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
         borderTop:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
@@ -639,7 +633,7 @@ const H2: React.CSSProperties = {
 };
 const BODY: React.CSSProperties = {
   fontFamily:"'Raleway', sans-serif", fontWeight:400,
-  fontSize:"clamp(0.95rem,1.45vw,1.25rem)", lineHeight:1.55, color:"#5c4530",
+  fontSize:"clamp(0.72rem,1.05vw,0.9rem)", lineHeight:1.45, color:"#5c4530",
 };
 const BODY_ITALIC: React.CSSProperties = {
   ...BODY, fontStyle:"italic", fontWeight:300, color:"#8b6e4e",
