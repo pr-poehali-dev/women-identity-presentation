@@ -19,7 +19,7 @@ const IMG = {
   wallArt:     "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/bucket/2c171346-080a-49d3-b11b-71f86a48b260.jpg",
 };
 
-const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","block3","projections","holograms"] as const;
+const SLIDES = ["title","concept","scenography","hosts","program","intro","host","block2","block3dance","block3orchestra","projections","holograms"] as const;
 
 const KF = `
   @keyframes su { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
@@ -89,9 +89,10 @@ export default function Index() {
           {slide === "program"     && <SlideProgram />}
           {slide === "intro"       && <SlideIntro />}
           {slide === "host"        && <SlideHost />}
-          {slide === "block2"      && <SlideBlock2 />}
-          {slide === "block3"      && <SlideBlock3 />}
-          {slide === "projections" && <SlideProjections />}
+          {slide === "block2"          && <SlideBlock2 />}
+          {slide === "block3dance"     && <SlideBlock3Dance />}
+          {slide === "block3orchestra" && <SlideBlock3Orchestra />}
+          {slide === "projections"     && <SlideProjections />}
           {slide === "holograms"   && <SlideHolograms />}
         </div>
       </div>
@@ -424,9 +425,57 @@ function SlideBlock2() {
   );
 }
 
-/* ─── SLIDE 9: Блок 3 — Женщина-танец + Оркестр ─── */
-function SlideBlock3() {
+/* ─── SLIDE 9: Блок 3 — Женщина-танец ─── */
+function SlideBlock3Dance() {
   const DANCE = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/80476c95-2ccb-4461-9f82-b9894670507b.jpg";
+  return (
+    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
+      <img src={DANCE} alt="" style={{
+        position:"absolute", inset:0, width:"100%", height:"100%",
+        objectFit:"cover", filter:"brightness(0.78) contrast(0.95) sepia(12%)",
+      }} />
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.78) 0%, rgba(10,4,2,0.3) 50%, transparent 100%)" }} />
+
+      <div style={{ position:"absolute", top:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
+        borderTop:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", top:"6%", right:"8%", width:"2.4rem", height:"2.4rem",
+        borderTop:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", bottom:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
+        borderBottom:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", bottom:"6%", right:"8%", width:"2.4rem", height:"2.4rem",
+        borderBottom:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
+
+      <div style={{
+        position:"absolute", bottom:"12%", left:0, right:0,
+        padding:"0 10%", display:"flex", flexDirection:"column", alignItems:"flex-start",
+      }}>
+        <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.26em",
+          textTransform:"uppercase", color:"rgba(200,184,154,0.65)", marginBottom:"0.8em",
+          animation:"su 0.7s ease-out both" }}>Блок 3</p>
+        <h2 style={{
+          fontFamily:"'Cormorant', serif", fontWeight:700,
+          fontSize:"clamp(1.8rem,4vw,3.6rem)", lineHeight:1.1, color:"#faf8f4",
+          letterSpacing:"0.03em", marginBottom:"0.55em",
+          animation:"su 0.85s ease-out 0.1s both",
+        }}>
+          Женщина-танец
+        </h2>
+        <div style={{ width:"3rem", height:"1px", background:"rgba(200,184,154,0.5)", marginBottom:"0.8em",
+          animation:"su 0.85s ease-out 0.2s both" }} />
+        <p style={{
+          fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:500,
+          fontSize:"clamp(0.95rem,1.6vw,1.4rem)", lineHeight:1.5, color:"rgba(250,248,244,0.88)",
+          maxWidth:"60%", animation:"su 0.9s ease-out 0.3s both",
+        }}>
+          Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз. Ведущий произносит подводку к поздравлению от мужей.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* ─── SLIDE 10: Блок 3 — Женщина-оркестр ─── */
+function SlideBlock3Orchestra() {
   const SKETCH = "https://cdn.poehali.dev/projects/878f2bbd-d3f5-4bee-9b43-4fbbd9fa9103/files/e93f52e4-d876-424f-b637-f8baddbbde17.jpg";
   const instruments = [
     { name:"Скрипка",  text:"Тонкая, трепетная, чувствующая всё — она первой отзывается на боль и радость." },
@@ -435,96 +484,51 @@ function SlideBlock3() {
     { name:"Рояль",    text:"Завершает всё. В её звуке — память, глубина и то, что остаётся после. После финальной композиции оркестра — поздравление от друзей." },
   ];
   return (
-    <div style={{ width:"100%", height:"100%", display:"flex", position:"relative", overflow:"hidden" }}>
+    <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
+      <img src={SKETCH} alt="" style={{
+        position:"absolute", inset:0, width:"100%", height:"100%",
+        objectFit:"cover", filter:"brightness(1.05) contrast(0.85) sepia(10%)",
+      }} />
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(240,235,227,0.92) 0%, rgba(240,235,227,0.5) 55%, transparent 100%)" }} />
 
-      {/* ── ЛЕВАЯ ПОЛОВИНА — Танец ── */}
-      <div style={{ flex:1, position:"relative", overflow:"hidden" }}>
-        <img src={DANCE} alt="" style={{
-          position:"absolute", inset:0, width:"100%", height:"100%",
-          objectFit:"cover", filter:"brightness(0.78) contrast(0.95) sepia(12%)",
-        }} />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.72) 0%, rgba(10,4,2,0.25) 50%, transparent 100%)" }} />
+      <div style={{ position:"absolute", top:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
+        borderTop:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", top:"6%", right:"8%", width:"2.4rem", height:"2.4rem",
+        borderTop:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", bottom:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
+        borderBottom:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
+      <div style={{ position:"absolute", bottom:"6%", right:"8%", width:"2.4rem", height:"2.4rem",
+        borderBottom:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
 
-        {/* угловые линии — лево */}
-        <div style={{ position:"absolute", top:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
-          borderTop:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
-        <div style={{ position:"absolute", bottom:"6%", left:"8%", width:"2.4rem", height:"2.4rem",
-          borderBottom:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
-
-        <div style={{
-          position:"absolute", bottom:"10%", left:0, right:0,
-          padding:"0 10%", display:"flex", flexDirection:"column", alignItems:"flex-start",
+      <div style={{
+        position:"absolute", bottom:"10%", left:0, right:0,
+        padding:"0 10%", display:"flex", flexDirection:"column",
+      }}>
+        <h2 style={{
+          fontFamily:"'Cormorant', serif", fontWeight:700,
+          fontSize:"clamp(1.8rem,4vw,3.6rem)", lineHeight:1.1, color:"#3d2b1a",
+          letterSpacing:"0.03em", marginBottom:"0.55em",
+          animation:"su 0.85s ease-out 0.1s both",
         }}>
-          <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.44rem", letterSpacing:"0.26em",
-            textTransform:"uppercase", color:"rgba(200,184,154,0.65)", marginBottom:"0.7em",
-            animation:"su 0.7s ease-out both" }}>Блок 3</p>
-          <h2 style={{
-            fontFamily:"'Cormorant', serif", fontWeight:700,
-            fontSize:"clamp(1.2rem,2.4vw,2.2rem)", lineHeight:1.15, color:"#faf8f4",
-            letterSpacing:"0.03em", marginBottom:"0.5em",
-            animation:"su 0.85s ease-out 0.1s both",
-          }}>
-            Женщина-танец
-          </h2>
-          <div style={{ width:"2.5rem", height:"1px", background:"rgba(200,184,154,0.5)", marginBottom:"0.65em",
-            animation:"su 0.85s ease-out 0.2s both" }} />
-          <p style={{
-            fontFamily:"'Cormorant', serif", fontStyle:"italic", fontWeight:500,
-            fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"rgba(250,248,244,0.85)",
-            animation:"su 0.9s ease-out 0.3s both",
-          }}>
-            Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз. Ведущий произносит подводку к поздравлению от мужей.
-          </p>
-        </div>
-      </div>
-
-      {/* Вертикальный разделитель */}
-      <div style={{ width:"1px", background:"rgba(200,184,154,0.25)", flexShrink:0, zIndex:2 }} />
-
-      {/* ── ПРАВАЯ ПОЛОВИНА — Оркестр ── */}
-      <div style={{ flex:1, position:"relative", overflow:"hidden" }}>
-        <img src={SKETCH} alt="" style={{
-          position:"absolute", inset:0, width:"100%", height:"100%",
-          objectFit:"cover", filter:"brightness(1.05) contrast(0.85) sepia(10%)",
-        }} />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(240,235,227,0.88) 0%, rgba(240,235,227,0.4) 50%, transparent 100%)" }} />
-
-        {/* угловые линии — право */}
-        <div style={{ position:"absolute", top:"6%", right:"8%", width:"2.4rem", height:"2.4rem",
-          borderTop:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
-        <div style={{ position:"absolute", bottom:"6%", right:"8%", width:"2.4rem", height:"2.4rem",
-          borderBottom:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
-
-        <div style={{
-          position:"absolute", bottom:"8%", left:0, right:0,
-          padding:"0 10%", display:"flex", flexDirection:"column",
-        }}>
-          <h2 style={{
-            fontFamily:"'Cormorant', serif", fontWeight:700,
-            fontSize:"clamp(1.2rem,2.4vw,2.2rem)", lineHeight:1.15, color:"#3d2b1a",
-            letterSpacing:"0.03em", marginBottom:"0.5em",
-            animation:"su 0.85s ease-out 0.15s both",
-          }}>
-            Женщина —<br/>оркестр
-          </h2>
-          <div style={{ width:"2.5rem", height:"1px", background:"#c8b89a", marginBottom:"0.8em",
-            animation:"su 0.85s ease-out 0.25s both" }} />
-          <div style={{ display:"flex", flexDirection:"column", gap:"0.35em", animation:"su 0.9s ease-out 0.35s both" }}>
-            {instruments.map((inst, i) => (
-              <div key={i} style={{ display:"flex", gap:"0.6em", alignItems:"flex-start" }}>
-                <span style={{
-                  fontFamily:"'Montserrat', sans-serif", fontSize:"0.46rem", letterSpacing:"0.14em",
-                  textTransform:"uppercase", color:"#a8926f",
-                  border:"1px solid #c8b89a", padding:"0.15em 0.45em",
-                  flexShrink:0, marginTop:"0.2em",
-                }}>{inst.name}</span>
-                <p style={{
-                  fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)",
-                  lineHeight:1.45, color:"#3a2810", margin:0,
-                }}>{inst.text}</p>
-              </div>
-            ))}
-          </div>
+          Женщина — оркестр
+        </h2>
+        <div style={{ width:"3rem", height:"1px", background:"#c8b89a", marginBottom:"0.9em",
+          animation:"su 0.85s ease-out 0.2s both" }} />
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.5em 2em", animation:"su 0.9s ease-out 0.3s both" }}>
+          {instruments.map((inst, i) => (
+            <div key={i} style={{ display:"flex", gap:"0.6em", alignItems:"flex-start" }}>
+              <span style={{
+                fontFamily:"'Montserrat', sans-serif", fontSize:"0.5rem", letterSpacing:"0.14em",
+                textTransform:"uppercase", color:"#a8926f",
+                border:"1px solid #c8b89a", padding:"0.15em 0.5em",
+                flexShrink:0, marginTop:"0.25em",
+              }}>{inst.name}</span>
+              <p style={{
+                fontFamily:"'Cormorant', serif", fontWeight:500, fontSize:"clamp(0.88rem,1.3vw,1.15rem)",
+                lineHeight:1.35, color:"#3a2810", margin:0,
+              }}>{inst.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
