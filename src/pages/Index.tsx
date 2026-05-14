@@ -622,16 +622,16 @@ function InfoRow({ icon, label, value }: { icon:string; label:string; value:stri
 
 /* ─── Shared styles ─── */
 const TAG: React.CSSProperties = {
-  fontFamily:"'Montserrat', sans-serif", fontSize:"0.53rem",
+  fontFamily:"'Montserrat', sans-serif", fontSize:"0.68rem",
   letterSpacing:"0.28em", color:"#a8926f", textTransform:"uppercase", marginBottom:"1.1em",
 };
 const H2: React.CSSProperties = {
-  fontFamily:"'Cormorant', serif", fontWeight:300,
-  fontSize:"clamp(1.2rem,2.7vw,2.2rem)", lineHeight:1.1, color:"#3d2b1a",
+  fontFamily:"'Cormorant', serif", fontWeight:400,
+  fontSize:"clamp(1.6rem,3.4vw,3rem)", lineHeight:1.15, color:"#3d2b1a",
 };
 const BODY: React.CSSProperties = {
   fontFamily:"'Cormorant', serif", fontWeight:400,
-  fontSize:"clamp(0.72rem,1.1vw,0.92rem)", lineHeight:1.82, color:"#5c4530",
+  fontSize:"clamp(0.95rem,1.45vw,1.25rem)", lineHeight:1.75, color:"#5c4530",
 };
 const BODY_ITALIC: React.CSSProperties = {
   ...BODY, fontStyle:"italic", fontWeight:300, color:"#8b6e4e",
