@@ -47,18 +47,18 @@ export function SlideBlock3Dance() {
   return (
     <div style={{ width:"100%", height:"100%", position:"relative", overflow:"hidden" }}>
       <img src={DANCE} alt="" style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", filter:"brightness(1.1) contrast(0.9) sepia(8%)" }} />
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.82) 0%, rgba(10,4,2,0.3) 55%, transparent 100%)" }} />
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(10,4,2,0.65) 0%, rgba(10,4,2,0.18) 50%, transparent 100%)" }} />
       <div style={{ position:"absolute", top:"6%", left:"8%", width:"2.4rem", height:"2.4rem", borderTop:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
       <div style={{ position:"absolute", top:"6%", right:"8%", width:"2.4rem", height:"2.4rem", borderTop:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
       <div style={{ position:"absolute", bottom:"6%", left:"8%", width:"2.4rem", height:"2.4rem", borderBottom:"1px solid rgba(200,184,154,0.45)", borderLeft:"1px solid rgba(200,184,154,0.45)" }} />
       <div style={{ position:"absolute", bottom:"6%", right:"8%", width:"2.4rem", height:"2.4rem", borderBottom:"1px solid rgba(200,184,154,0.45)", borderRight:"1px solid rgba(200,184,154,0.45)" }} />
       <div style={{ position:"absolute", bottom:"12%", left:0, right:0, padding:"0 10%", display:"flex", flexDirection:"column", alignItems:"flex-start" }}>
-        <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.62rem", letterSpacing:"0.26em", textTransform:"uppercase", color:"rgba(220,200,160,0.95)", marginBottom:"0.8em", animation:"su 0.7s ease-out both" }}>Блок 3</p>
-        <h2 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(2.4rem,5.2vw,4.8rem)", lineHeight:1.1, color:"#ffffff", letterSpacing:"0.03em", marginBottom:"0.55em", animation:"su 0.85s ease-out 0.1s both", textShadow:"0 2px 18px rgba(0,0,0,0.45)" }}>
+        <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"0.85rem", letterSpacing:"0.26em", textTransform:"uppercase", color:"#3d1a08", marginBottom:"0.8em", animation:"su 0.7s ease-out both" }}>Блок 3</p>
+        <h2 style={{ fontFamily:"'Raleway', sans-serif", fontWeight:700, fontSize:"clamp(1.8rem,4vw,3.6rem)", lineHeight:1.1, color:"#faf8f4", letterSpacing:"0.03em", marginBottom:"0.55em", animation:"su 0.85s ease-out 0.1s both" }}>
           Женщина — танец
         </h2>
-        <div style={{ width:"3rem", height:"1px", background:"rgba(220,200,160,0.7)", marginBottom:"0.8em", animation:"su 0.85s ease-out 0.2s both" }} />
-        <p style={{ fontFamily:"'Raleway', sans-serif", fontStyle:"italic", fontWeight:500, fontSize:"clamp(1.05rem,1.85vw,1.6rem)", lineHeight:1.5, color:"rgba(255,255,255,0.96)", maxWidth:"65%", animation:"su 0.9s ease-out 0.3s both", textShadow:"0 1px 8px rgba(0,0,0,0.35)" }}>
+        <div style={{ width:"3rem", height:"1px", background:"rgba(200,184,154,0.5)", marginBottom:"0.8em", animation:"su 0.85s ease-out 0.2s both" }} />
+        <p style={{ fontFamily:"'Raleway', sans-serif", fontStyle:"italic", fontWeight:500, fontSize:"clamp(0.95rem,1.6vw,1.4rem)", lineHeight:1.5, color:"rgba(250,248,244,0.88)", maxWidth:"60%", animation:"su 0.9s ease-out 0.3s both" }}>
           Ведущий ведёт рассказ — и пока он говорит, в зале оживают танцоры. Каждый стиль — это другая женщина: страстное танго, воздушный вальс, стремительный джаз.<br/>Ведущий произносит подводку к поздравлению от мужей.
         </p>
       </div>
