@@ -343,7 +343,7 @@ function SlideIntro() {
           {points.map((p, i) => (
             <div key={i} style={{ display:"flex", gap:"0.75em", alignItems:"flex-start" }}>
               <div style={{ width:"1.4rem", height:"1px", background:"#c8b89a", flexShrink:0, marginTop:"0.65em" }} />
-              <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:500, fontSize:"clamp(0.82rem,1.15vw,1.05rem)", lineHeight:1.45, color:"#3a2810", margin:0 }}>{p}</p>
+              <p style={{ fontFamily:"'Raleway', sans-serif", fontWeight:400, fontSize:"clamp(0.65rem,0.92vw,0.8rem)", lineHeight:1.45, color:"#5c4530", margin:0 }}>{p}</p>
             </div>
           ))}
         </div>
