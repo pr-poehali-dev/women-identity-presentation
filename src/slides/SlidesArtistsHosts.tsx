@@ -6,8 +6,8 @@ export function SlideArtists1() {
   return (
     <div style={{ width:"100%", height:"100%", background:CREAM_BG, display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
       <h2 style={{ ...ARTISTS_TITLE, animation:"su 0.7s ease-out both" }}>Артисты</h2>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"4%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyItems:"center" }}>
-        {["Akmal'", "Мачете", "Леонид Агутин и Анжелика Варум"].map(name => (
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"4%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyItems:"center" }}>
+        {["Akmal'", "Леонид Агутин и Анжелика Варум"].map(name => (
           <div key={name} style={{ width:"100%", display:"flex", flexDirection:"column", alignItems:"center", gap:"0.6em" }}>
             <div style={{ width:"100%", aspectRatio:"3/4", background:"linear-gradient(145deg, #e8e0d4, #d6ccc0)", border:"1px solid #c8b89a", display:"flex", alignItems:"center", justifyContent:"center" }}>
               <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"0.5em", opacity:0.28 }}>
