@@ -31,7 +31,7 @@ export function SlideArtists2() {
       <h2 style={{ ...ARTISTS_TITLE, animation:"su 0.7s ease-out both" }}>Артисты</h2>
       <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"4%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyItems:"center" }}>
         {["Sevak", "Леонид Телешев", "Мераб Амзоев"].map(name => (
-          <div key={name} style={{ width:"70%" }}><PhotoCard name={name} /></div>
+          <div key={name} style={{ width:"85%" }}><PhotoCard name={name} /></div>
         ))}
       </div>
     </div>
