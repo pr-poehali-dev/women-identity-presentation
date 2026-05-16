@@ -43,9 +43,9 @@ export function SlideHosts1() {
   return (
     <div style={{ width:"100%", height:"100%", background:CREAM_BG, display:"flex", flexDirection:"column", padding:"4.5% 6% 4%", boxSizing:"border-box" }}>
       <h2 style={{ ...ARTISTS_TITLE, animation:"su 0.7s ease-out both" }}>Ведущие</h2>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:"3%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyItems:"center" }}>
+      <div style={{ display:"flex", gap:"8%", flex:1, minHeight:0, animation:"su 0.85s ease-out 0.1s both", alignItems:"center", justifyContent:"center" }}>
         {names.map(name => (
-          <div key={name} style={{ width:"100%" }}><PhotoCard name={name} /></div>
+          <div key={name} style={{ width:"24%" }}><PhotoCard name={name} /></div>
         ))}
       </div>
     </div>
